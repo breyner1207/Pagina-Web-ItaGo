@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itago Turismo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo">
+      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Arte</a></li>
+        <li><a href="#">Transporte</a></li>
+        <li><a href="#">Hospedaje</a></li>
+        <li><a href="#">Gastronomía</a></li>
+        <li><a href="#">Lugares</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Recorridos</a></li>
+        <li><a href="#">Historia</a></li>
+        <li><a href="#">Testimonios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner Principal -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h2>Descubre Itagüí con <span class="ita">Ita</span><span class="go">Go</span></h2>
+      <p>Tu guía perfecta para vivir experiencias inolvidables</p>
+      <a href="#explora" class="btn">Explorar</a>
+    </div>
+  </section>
+
+  <!-- Sección Explora con carrusel animado -->
+ <section class="carrusel-secciones">
+  <h2>Explora Itago</h2>
+  <div class="container3d">
+    <div class="card3d">
+      <img src="Itago.png" alt="Nosotros">
+      <div class="contenido-card">
+        <h3>Nosotros</h3>
+      </div>
+    </div>
+
+    <div class="card3d">
+      <img src="iglesia.jpg" alt="Sitios Turísticos">
+      <div class="contenido-card">
+        <h3>Sitios Turísticos</h3>
+      </div>
+    </div>
+
+    <div class="card3d">
+      <img src="Restaurante.webp" alt="Gastronomía">
+      <div class="contenido-card">
+        <h3>Delicias y Sabores</h3>
+      </div>
+    </div>
+
+    <div class="card3d">
+      <img src="diversion.jpg" alt="Diversión">
+      <div class="contenido-card">
+        <h3>Diviértete</h3>
+      </div>
+    </div>
+
+    <div class="card3d">
+      <img src="Experiencias.webp" alt="Experiencias">
+      <div class="contenido-card">
+        <h3>Experiencias</h3>
+      </div>
+    </div>
+
+    <div class="card3d">
+      <img src="airbnb.avif" alt="Alojamiento">
+      <div class="contenido-card">
+        <h3>Alojamiento</h3>
+      </div>
+    </div>
+
+    <div class="card3d">
+      <img src="Metro.jpg" alt="Movilidad">
+      <div class="contenido-card">
+        <h3>Movilidad</h3>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Destinos Destacados -->
+  <section class="destinos">
+    <h2>Destinos Destacados</h2>
+    <div class="grid-destinos">
+      <div class="destino"><img src="img/parque.jpg" alt="Parque Principal"><h4>Parque Principal</h4></div>
+      <div class="destino"><img src="img/gastronomia.jpg" alt="Gastronomía Local"><h4>Gastronomía Local</h4></div>
+      <div class="destino"><img src="img/hotel.jpg" alt="Hoteles y Alojamiento"><h4>Hoteles y Alojamiento</h4></div>
+      <div class="destino"><img src="img/eventos.jpg" alt="Eventos Culturales"><h4>Eventos Culturales</h4></div>
+    </div>
+  </section>
+
+  <!-- Planifica tu viaje -->
+  <section class="planifica">
+    <h2>Planifica tu Viaje</h2>
+    <p>Encuentra rutas, hospedaje, transporte y experiencias únicas con ItaGo.</p>
+    <a href="#" class="btn">Comenzar Ahora</a>
+  </section>
+
+  <!-- Mascota -->
+  <div class="mascota">
+    <img src="Logoitago.png" alt="Mascota Itago">
+    <div class="mensaje-contacto" id="mensajeContacto">
+      Contáctanos al +57 304 552 3816 para más información
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Itago Turismo. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Script Mascota -->
+  <script>
+    const mascota = document.querySelector('.mascota');
+    const mensaje = document.getElementById('mensajeContacto');
+
+    mascota.addEventListener('click', () => {
+      mensaje.classList.toggle('show');
+      if (mensaje.classList.contains('show')) {
+        setTimeout(() => mensaje.classList.remove('show'), 4000);
+      }
+    });
+  </script>
+
+</body>
+</html>
