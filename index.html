@@ -113,30 +113,22 @@
   </section>
 
   <!-- Mascota -->
-  <div class="mascota">
-    <img src="Logoitago.png" alt="Mascota Itago">
-    <div class="mensaje-contacto" id="mensajeContacto">
-      Contáctanos al +57 304 552 3816 para más información
-    </div>
+<div class="mascota" id="mascota">
+  <img src="Logoitago.png" alt="Mascota Itago">
+  <div class="mensaje-contacto" id="mensajeContacto">
+    ¡Hola! Soy ItagoBot 🤖 ¿En qué puedo ayudarte?
   </div>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Itago Turismo. Todos los derechos reservados.</p>
-  </footer>
+<!-- Chat flotante -->
+<div class="chatbot" id="chatbot">
+  <div class="chat-output" id="chatOutput"></div>
+  <input type="text" id="userInput" placeholder="Escribe tu mensaje y presiona Enter..." />
+</div>
 
-  <!-- Script Mascota -->
-  <script>
-    const mascota = document.querySelector('.mascota');
-    const mensaje = document.getElementById('mensajeContacto');
-
-    mascota.addEventListener('click', () => {
-      mensaje.classList.toggle('show');
-      if (mensaje.classList.contains('show')) {
-        setTimeout(() => mensaje.classList.remove('show'), 4000);
-      }
-    });
-  </script>
-
+ <!-- Footer --> 
+  <footer> <p>© 2025 Itago Turismo. Todos los derechos reservados.</p> 
+  </footer> 
+ <script src="script.js"></script>
 </body>
 </html>

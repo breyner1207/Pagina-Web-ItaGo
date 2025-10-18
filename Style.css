@@ -253,12 +253,39 @@ nav a:hover {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 150px;
+  width: 100px;
   z-index: 1000;
   animation: float 3.5s ease-in-out infinite;
   filter: drop-shadow(0 0 10px rgba(94, 0, 255, 0.6));
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
+}
+.chatbot {
+  position: fixed;
+  bottom: 140px;
+  right: 40px;
+  background: rgba(0,0,40,0.9);
+  color: white;
+  border-radius: 15px;
+  padding: 15px;
+  width: 320px;
+  display: none;
+  flex-direction: column;
+}
+
+.chat-output {
+  max-height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#userInput {
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+  outline: none;
 }
 
 .mascota:hover {
