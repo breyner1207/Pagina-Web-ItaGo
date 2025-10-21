@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ItaGo | Gastronomía</title>
+  <link rel="stylesheet" href="gastronomia.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- =========================================================
+       🟣 ENCABEZADO
+  ========================================================= -->
+  <header class="header">
+    <div class="logo">
+      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="arte.html">Arte</a></li>
+        <li><a href="gastronomia.html" class="activo">Gastronomía</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Alojamiento</a></li>
+        <li><a href="#">Movilidad</a></li>
+        <li><a href="#">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       🍷 HERO DE GASTRONOMÍA
+  ========================================================= -->
+  <section class="hero-gastro">
+    <div class="contenido">
+      <h2>Sabores que cuentan historias</h2>
+      <p>
+        Descubre los platos típicos, restaurantes y experiencias culinarias
+        que hacen de Itagüí un lugar lleno de sabor.
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       🧂 INTRODUCCIÓN SENSORIAL
+  ========================================================= -->
+  <section class="intro-gastro">
+    <h2>Gastronomía de Itagüí</h2>
+    <p>
+      La gastronomía de Itagüí es una mezcla vibrante de tradición antioqueña
+      y sabores modernos. Desde el clásico bandeja paisa hasta innovadoras
+      fusiones locales, cada plato representa el alma trabajadora y alegre de
+      su gente.
+    </p>
+  </section>
+
+ <!-- =========================================================
+     🍽️ MAPA GASTRONÓMICO DE ITAGÜÍ
+========================================================= -->
+<section class="mapa-gastro">
+  <h2 class="titulo-seccion">Sabores Cercanos 🍲</h2>
+  <p class="subtitulo-seccion">
+    Descubre restaurantes, cafés y lugares únicos para disfrutar la gastronomía de Itagüí.
+  </p>
+
+  <!-- Contenedor del mapa -->
+  <div id="mapaGastro" style="height: 500px;"></div>
+</section>
+
+<!-- Agregar Leaflet -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  // Inicializar mapa centrado en Itagüí
+  const mapa = L.map("mapaGastro").setView([6.1717, -75.6110], 14);
+
+  // Cargar mapa base
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors"
+  }).addTo(mapa);
+
+  // Lugares gastronómicos destacados
+const lugares = [
+  {
+    nombre: "🍖 La Parrillita de la 85",
+    coords: [6.1718, -75.6102],
+    descripcion: "Especialidad en carnes y comida paisa."
+  },
+  {
+    nombre: "🍕 Pizza al Parque",
+    coords: [6.1750, -75.6150],
+    descripcion: "Ambiente familiar con pizzas artesanales."
+  },
+  {
+    nombre: "🍔 Itago Burgers",
+    coords: [6.1670, -75.6060],
+    descripcion: "Hamburguesas caseras con toque local."
+  },
+  {
+    nombre: "🍣 Sushi Express Itagüí",
+    coords: [6.1695, -75.6120],
+    descripcion: "Fusión japonesa con ingredientes paisas."
+  },
+  {
+    nombre: "☕ Café Ditaires",
+    coords: [6.1630, -75.6180],
+    descripcion: "Café artesanal y postres locales."
+  },
+  {
+    nombre: "🥘 Fonda Bitagüí",
+    coords: [6.1725, -75.6155],
+    descripcion: "Platos típicos antioqueños en ambiente tradicional."
+  },
+  {
+    nombre: "🍤 Amazonas Pescado y Marisco",
+    coords: [6.1700, -75.6135],
+    descripcion: "Restaurante de mariscos y ambiente elegante."
+  },
+  {
+    nombre: "🍺 Bar Microcervecería Itagüí",
+    coords: [6.1642, -75.6128],
+    descripcion: "Cervezas artesanales y snacks locales."
+  },
+  {
+    nombre: "🍛 Restaurante El Sabor Paisa",
+    coords: [6.1680, -75.6090],
+    descripcion: "Comida casera con esencia antioqueña."
+  },
+  {
+    nombre: "🌮 Taco Town",
+    coords: [6.1703, -75.6072],
+    descripcion: "Tacos, burritos y comida mexicana auténtica."
+  },
+  {
+    nombre: "🍗 Pollo Dorado Itagüí",
+    coords: [6.1665, -75.6105],
+    descripcion: "Pollo asado, papas criollas y jugos naturales."
+  },
+  {
+    nombre: "🥗 Verde Vivo",
+    coords: [6.1720, -75.6168],
+    descripcion: "Restaurante saludable con bowls y ensaladas frescas."
+  },
+  {
+    nombre: "🍕 Don Gordo Pizza",
+    coords: [6.1690, -75.6082],
+    descripcion: "Pizzas gigantes con masa artesanal y salsas caseras."
+  },
+  {
+    nombre: "🍔 Burger Station",
+    coords: [6.1743, -75.6145],
+    descripcion: "Hamburguesas premium con ingredientes locales."
+  },
+  {
+    nombre: "🍝 Pasta Bella",
+    coords: [6.1658, -75.6098],
+    descripcion: "Cocina italiana tradicional con toque paisa."
+  },
+  {
+    nombre: "🍨 Heladería La 85",
+    coords: [6.1712, -75.6115],
+    descripcion: "Helados artesanales y postres fríos deliciosos."
+  },
+  {
+    nombre: "🍜 Ramen Paisa",
+    coords: [6.1687, -75.6139],
+    descripcion: "Ramen japonés con ingredientes locales y únicos."
+  },
+  {
+    nombre: "🍛 El Fogón de Doña Mary",
+    coords: [6.1731, -75.6172],
+    descripcion: "Comida casera tradicional servida con cariño."
+  },
+  {
+    nombre: "🍸 Bar 33 GastroPub",
+    coords: [6.1655, -75.6150],
+    descripcion: "Ambiente moderno, cócteles y tapas gourmet."
+  },
+  {
+    nombre: "🥞 Desayunos Típicos La 60",
+    coords: [6.1699, -75.6183],
+    descripcion: "Arepas, calentado paisa y café recién hecho."
+  }
+];
+
+  // Agregar marcadores al mapa
+  lugares.forEach(lugar => {
+    L.marker(lugar.coords)
+      .addTo(mapa)
+      .bindPopup(`<strong>${lugar.nombre}</strong><br>${lugar.descripcion}`);
+  });
+</script>
+
+  <!-- =========================================================
+       🍛 RESTAURANTES DESTACADOS
+  ========================================================= -->
+  <section class="restaurantes">
+    <h2>Restaurantes Destacados</h2>
+
+    <div class="grid-restaurantes">
+      <div class="rest-card">
+        <img src="fonda bitagui.png" alt="Fonda Itagüí" />
+        <h3>Fonda Itagüí</h3>
+        <p>
+          Ambiente tradicional con música en vivo y platos típicos que
+          representan la cultura paisa.
+        </p>
+      </div>
+
+      <div class="rest-card">
+        <img src="Restaurante moderno.jpeg" alt="Sabores Modernos" />
+        <h3>Sabores Modernos</h3>
+        <p>
+          Un lugar donde la cocina contemporánea se encuentra con los
+          ingredientes locales.
+        </p>
+      </div>
+
+      <div class="rest-card">
+        <img src="Street logo.png" alt="La Parrilla del Parque" />
+        <h3>La Parrilla del Parque</h3>
+        <p>
+          Carnes al carbón y postres caseros frente al parque principal de
+          Itagüí.
+        </p>
+      </div>
+
+      <div class="rest-card">
+        <img src="Cafe artesanal.jpg" alt="Café Artesanal" />
+        <h3>Café Artesanal</h3>
+        <p>
+          Un espacio acogedor para disfrutar del mejor café local acompañado de
+          repostería artesanal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       🧁 EXPERIENCIAS GASTRONÓMICAS (CARRUSEL ANIMADO REAL)
+  ========================================================= -->
+  <section class="experiencias">
+    <h2>Experiencias Gastronómicas</h2>
+
+    <div class="carrusel-experiencias">
+      <button class="btn-carrusel prev">&#10094;</button>
+
+      <div class="carrusel-track" id="carruselTrack">
+        <div class="slide">
+          <img src="Rutas sabor.jpg" alt="Rutas del Sabor" />
+          <div class="info">
+            <h3>Rutas del Sabor</h3>
+            <p>
+              Recorre los mejores puntos gastronómicos de la ciudad y degusta
+              la esencia de la cocina local.
+            </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="Festivales Culinario.jpeg" alt="Festivales Culinarios" />
+          <div class="info">
+            <h3>Festivales Culinarios</h3>
+            <p>
+              Disfruta de ferias, muestras y eventos donde chefs locales
+              comparten su pasión por la comida.
+            </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="Talleres de cocina.jpg" alt="Talleres de Cocina" />
+          <div class="info">
+            <h3>Talleres de Cocina</h3>
+            <p>
+              Aprende a preparar platos típicos guiado por cocineros
+              itagüiseños y lleva contigo el sabor de la tradición.
+            </p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="Sabores del parque.jpg" alt="Sabores del Parque" />
+          <div class="info">
+            <h3>Sabores del Parque</h3>
+            <p>
+              Una experiencia al aire libre para degustar platos típicos
+              rodeado del ambiente itagüiseño.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-carrusel next">&#10095;</button>
+    </div>
+
+    <div class="indicadores" id="indicadores"></div>
+  </section>
+
+  <!-- =========================================================
+       ✨ CTA FINAL
+  ========================================================= -->
+  <section class="cta-gastro">
+    <h2>¡Vive Itagüí a través de su sabor!</h2>
+    <p>
+      Explora sus restaurantes, disfruta su cultura culinaria y déjate tentar
+      por su sazón única.
+    </p>
+    <a href="index.html" class="btn">Volver al Inicio</a>
+  </section>
+
+  <!-- =========================================================
+       🤖 MASCOTA & CHATBOT
+  ========================================================= -->
+  <div class="mascota" id="mascota">
+    <img src="Logoitago.png" alt="Mascota Itago" />
+    <div class="mensaje-contacto" id="mensajeContacto">
+      ¡Hola! Soy ItagoBot 🤖 ¿Quieres descubrir un buen lugar para comer?
+    </div>
+  </div>
+
+  <div class="chatbot" id="chatbot">
+    <div class="chat-output" id="chatOutput"></div>
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje y presiona Enter..." />
+  </div>
+
+  <!-- =========================================================
+       🦶 FOOTER
+  ========================================================= -->
+  <footer>
+    <p>© 2025 Itago Turismo. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- =========================================================
+       🎞️ SCRIPT CARRUSEL
+  ========================================================= -->
+  <script src="script-gastro.js"></script>
+  <script>
+    const track = document.getElementById("carruselTrack");
+    const slides = Array.from(track.children);
+    const btnPrev = document.querySelector(".btn-carrusel.prev");
+    const btnNext = document.querySelector(".btn-carrusel.next");
+    const indicadores = document.getElementById("indicadores");
+
+    let currentSlide = 0;
+
+    // Crear indicadores
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.classList.add("dot");
+      if (index === 0) dot.classList.add("active");
+      indicadores.appendChild(dot);
+    });
+
+    const dots = Array.from(indicadores.children);
+
+    // Función para mover carrusel
+    function moveToSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[index].classList.add("active");
+      currentSlide = index;
+    }
+
+    // Controles
+    btnNext.addEventListener("click", () => moveToSlide(currentSlide + 1));
+    btnPrev.addEventListener("click", () => moveToSlide(currentSlide - 1));
+
+    // Clic en indicador
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => moveToSlide(index));
+    });
+
+    // Movimiento automático
+    setInterval(() => {
+      moveToSlide(currentSlide + 1);
+    }, 4000);
+  </script>
+</body>
+</html>

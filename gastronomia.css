@@ -1,0 +1,559 @@
+/* =========================================================
+   🍽️ GASTRONOMÍA.CSS — Página de Sabores de Itagüí
+   Autor: Garetto
+   Basado en la línea visual oficial de ItaGo
+   ========================================================= */
+
+/* === RESET GENERAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   🟣 HEADER
+   ========================================================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #2e00ff, #7a5fff);
+  padding: 10px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.logo h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  -webkit-text-stroke: 1px #000;
+}
+
+.ita { color: #3774b8; }
+.go { color: #ffd500; }
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.activo {
+  color: #ffd500;
+  text-shadow: 0 0 8px rgba(255, 208, 0, 0.8);
+}
+
+/* =========================================================
+   🍷 HERO DE GASTRONOMÍA
+   ========================================================= */
+.hero-gastro {
+  height: 90vh;
+  background: url("Gastronomia.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-gastro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-gastro .contenido {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 850px;
+}
+
+.hero-gastro h2 {
+  font-size: 3.2rem;
+  color: #ffd500;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.hero-gastro p {
+  font-size: 1.3rem;
+  margin-top: 15px;
+}
+
+/* =========================================================
+   🧂 INTRODUCCIÓN SENSORIAL
+   ========================================================= */
+.intro-gastro {
+  background: #1a1a1a;
+  padding: 100px 20px 70px;
+  text-align: center;
+}
+
+.intro-gastro h2 {
+  font-size: 2.2rem;
+  color: #ffd500;
+  margin-bottom: 15px;
+}
+
+.intro-gastro p {
+  max-width: 850px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #fff;
+}
+
+/* =========================================================
+   🍽️ MAPA GASTRONÓMICO
+========================================================= */
+.mapa-gastro {
+  background: linear-gradient(180deg, #100022, #1a0135);
+  color: #fff;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.mapa-gastro .titulo-seccion {
+  font-size: 2.3rem;
+  color: #b75cff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.mapa-gastro .subtitulo-seccion {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+#mapaGastro {
+  width: 1100px;
+  height: 350px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(183, 92, 255, 0.3);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* =========================================================
+   🍛 RESTAURANTES DESTACADOS
+   ========================================================= */
+.restaurantes {
+  background: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.restaurantes h2 {
+  color: #ffd500;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.grid-restaurantes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rest-card {
+  background: #f4f4f9;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.rest-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.rest-card h3 {
+  color: #2e00ff;
+  margin-top: 10px;
+}
+
+.rest-card p {
+  color: #333;
+  padding: 10px 15px 20px;
+}
+
+.rest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   🧁 CARRUSEL EXPERIENCIAS GASTRONÓMICAS
+   ========================================================= */
+.experiencias {
+  background-color: #fffdf9;
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.experiencias h2 {
+  font-size: 2.5rem;
+  color: #5b0099;
+  margin-bottom: 40px;
+}
+
+.carrusel-experiencias {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 25px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.carrusel-track {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 25px 25px 0 0;
+}
+
+.slide .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(91, 0, 153, 0.6);
+  color: #fff;
+  padding: 25px;
+  border-radius: 0 0 25px 25px;
+}
+
+.slide .info h3 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Botones */
+.btn-carrusel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  padding: 8px 15px;
+  border-radius: 50%;
+  color: #5b0099;
+  transition: all 0.3s;
+}
+
+.btn-carrusel:hover {
+  background: #5b0099;
+  color: white;
+}
+
+.btn-carrusel.prev { left: 15px; }
+.btn-carrusel.next { right: 15px; }
+
+/* Indicadores */
+.indicadores {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.indicadores .dot {
+  width: 20px;
+  height: 20px;
+  background-color: #1a1a1a;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.indicadores .dot.active {
+  background-color: #ffd500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slide img { height: 300px; }
+  .slide .info h3 { font-size: 1.2rem; }
+}
+
+/* =========================================================
+   ✨ CTA FINAL
+   ========================================================= */
+.cta-gastro {
+  background: linear-gradient(180deg, #5b33ff 0%, #2e00ff 100%);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta-gastro h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.cta-gastro p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd500, #ffb800);
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #ffea7f, #ffd500);
+}
+
+/* =========================================================
+   🤖 MASCOTA & CHATBOT
+   ========================================================= */
+
+/* 🧁 Mascota flotante */
+.mascota {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  z-index: 1000;
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(94, 0, 255, 0.6));
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.mascota img {
+  width: 100%;
+}
+
+/* ✨ Animación flotante */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* 💬 Mensaje emergente al pasar el mouse */
+.mensaje-contacto {
+  position: absolute;
+  bottom: 90px;
+  right: 110px;
+  width: 280px;
+  padding: 14px 18px;
+  font-size: 15px;
+  color: white;
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mascota:hover .mensaje-contacto {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔻 Triángulo decorativo */
+.mensaje-contacto::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 40px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #5b33ff;
+}
+
+/* =========================================================
+   🤖 MASCOTA & CHATBOT (UNIFICADO)
+   ========================================================= */
+.mascota {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  z-index: 1000;
+  animation: float 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(94, 0, 255, 0.6));
+  cursor: pointer;
+}
+
+.mascota img {
+  width: 100%;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.mensaje-contacto {
+  position: absolute;
+  bottom: 90px;
+  right: 110px;
+  background: linear-gradient(135deg, #6a00f4, #a200ff);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 15px;
+  width: 280px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.mascota:hover .mensaje-contacto {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mensaje-contacto::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 40px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #a200ff;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 140px;
+  right: 40px;
+  background: rgba(20, 20, 40, 0.95);
+  color: white;
+  border-radius: 20px;
+  padding: 18px;
+  width: 330px;
+  height: 350px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  z-index: 1100;
+}
+
+.chat-output {
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-output div {
+  padding: 8px 12px;
+  border-radius: 18px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.chat-output div:nth-child(odd) {
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  color: white;
+  align-self: flex-start;
+}
+
+.chat-output div:nth-child(even) {
+  background: #ffd500;
+  color: #000;
+  align-self: flex-end;
+}
+
+#userInput {
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  width: 100%;
+  background: #1a1a1a;
+  color: white;
+  margin-top: 5px;
+}
+
+.boton-opcion {
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 14px;
+  margin: 4px 4px 0 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.25s ease;
+  align-self: flex-start;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton-opcion:hover {
+  background: linear-gradient(135deg, #ffd500, #ffb800);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   🦶 FOOTER
+   ========================================================= */
+footer {
+  background: #2e00ff;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 14px;
+}
