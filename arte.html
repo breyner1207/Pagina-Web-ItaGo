@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arte y Cultura | Itago Turismo</title>
+  <link rel="stylesheet" href="arte.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ==================== ENCABEZADO ==================== -->
+  <header class="header">
+    <div class="logo">
+      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="arte.html" class="activo">Arte</a></li>
+        <li><a href="#">Gastronomia</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Alojamiento</a></li>
+        <li><a href="#">Movilidad</a></li>
+        <li><a href="#">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== HERO DE ARTE ========== -->
+  <section class="hero-arte">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h2>Arte y Cultura de Itagüí</h2>
+      <p>Una ciudad que vibra al ritmo del color, la música y la tradición.</p>
+    </div>
+  </section>
+
+  <!-- ========== SECCIÓN INTRODUCTORIA ========== -->
+  <section class="intro-arte">
+    <div class="container">
+      <h2>Un recorrido por la creatividad</h2>
+      <p>
+        El arte en Itagüí no solo decora sus calles, sino que también cuenta historias.
+        Desde los murales comunitarios hasta las galerías locales, la ciudad invita
+        a los visitantes a descubrir su identidad a través de la expresión artística.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== GALERÍA DE ARTE LOCAL ========== -->
+  <section class="galeria-arte">
+    <h2>Murales y Espacios Creativos</h2>
+    <div class="grid-arte">
+      <article class="card-arte">
+        <img src="Mural comunitario.jpg" alt="Mural urbano Itagüí">
+        <div class="info">
+          <h3>Mural Comunitario</h3>
+          <p>Una explosión de color que refleja las raíces culturales de Itagüí.</p>
+        </div>
+      </article>
+
+      <article class="card-arte">
+        <img src="Galeria sur.jpg" alt="Galería local">
+        <div class="info">
+          <h3>Galería del Sur</h3>
+          <p>Un espacio donde los artistas emergentes comparten su talento con el mundo.</p>
+        </div>
+      </article>
+
+      <article class="card-arte">
+        <img src="Esculturas urbanas.jpg" alt="Escultura pública">
+        <div class="info">
+          <h3>Esculturas Urbanas</h3>
+          <p>Instalaciones que conectan arte, historia y comunidad en los parques locales.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SECCIÓN DE RUTAS CULTURALES ========== -->
+  <section class="rutas-culturales">
+    <h2>Rutas Culturales</h2>
+    <div class="ruta">
+      <img src="Grafisur.jpg" alt="Ruta de murales">
+      <div class="texto-ruta">
+        <h3>Ruta de los Murales</h3>
+        <p>
+          Descubre los murales más representativos del municipio en un recorrido
+          lleno de color, historia y cultura urbana.
+        </p>
+        <a href="#" class="btn">Ver Ruta</a>
+      </div>
+    </div>
+
+    <div class="ruta invertida">
+      <img src="Talleres de arte.jpg" alt="Talleres artísticos">
+      <div class="texto-ruta">
+        <h3>Talleres de Arte Local</h3>
+        <p>
+          Participa en experiencias creativas junto a artistas locales,
+          desde pintura hasta escultura y fotografía urbana.
+        </p>
+        <a href="#" class="btn">Inscribirme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EVENTOS ARTÍSTICOS ========== -->
+  <section class="eventos-arte">
+    <h2>Eventos Destacados</h2>
+    <div class="cards-eventos">
+      <div class="evento">
+        <img src="Festival de arte.webp" alt="Festival de arte">
+        <h3>Festival de Arte y Cultura</h3>
+        <p>Una celebración anual que reúne artistas, músicos y artesanos de todo Itagüí.</p>
+      </div>
+      <div class="evento">
+        <img src="Feria artesanal.jpg" alt="Feria artesanal">
+        <h3>Feria Artesanal</h3>
+        <p>El lugar ideal para conocer el trabajo de los creadores locales y comprar arte hecho con amor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECCIÓN FINAL / CTA ========== -->
+  <section class="cta-final">
+    <h2>Vive el arte, siente Itagüí</h2>
+    <p>Explora, crea y sé parte de la transformación cultural de nuestra ciudad.</p>
+    <a href="index.html" class="btn">Volver al inicio</a>
+  </section>
+
+  <!-- ========== MASCOTA Y CHAT ========== -->
+  <div class="mascota" id="mascota">
+    <img src="Logoitago.png" alt="Mascota Itago">
+    <div class="mensaje-contacto" id="mensajeContacto">
+      ¡Hola! Soy ItagoBot 🤖 ¿Quieres conocer los eventos artísticos de esta semana?
+    </div>
+  </div>
+
+  <div class="chatbot" id="chatbot">
+    <div class="chat-output" id="chatOutput"></div>
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje..." />
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2025 Itago Turismo. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="scriptarte.js"></script>
+</body>
+</html>
+
