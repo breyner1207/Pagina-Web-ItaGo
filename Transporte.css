@@ -1,4 +1,6 @@
-/* === RESET GENERAL === */
+/* =========================================================
+   🎨 ESTILOS GENERALES
+   ========================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,45 +8,45 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* === BODY === */
 body {
-  background: #fff;
+  background: #f5f6fa;
+  color: #222;
+  overflow-x: hidden;
 }
 
-/* === HEADER === */
+/* =========================================================
+   🔝 ENCABEZADO
+   ========================================================= */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #2e00ff, #7a5fff);
-  padding: 10px 40px;
-  position: fixed;
-  width: 100%;
+  background: #111;
+  color: white;
+  padding: 15px 40px;
+  position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .logo h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  -webkit-text-stroke: 1.2px #000;
-  text-shadow: 1.2px #000;
+  font-size: 1.8rem;
 }
 
-.ita {
-  color: #3774b8;
+.logo .ita {
+  color: #ffffff;
   font-weight: 700;
 }
 
-.go {
-  color: #ffd500;
+.logo .go {
+  color: #8f57ff;
   font-weight: 700;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 25px;
 }
 
 nav a {
@@ -55,153 +57,82 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffcc00;
+  color: #8f57ff;
 }
 
-/* ==== SECCIÓN METRO ITAGÜÍ ==== */
-.hero-metro {
+/* =========================================================
+   🏙️ HERO PRINCIPAL
+   ========================================================= */
+.hero-transporte {
   position: relative;
-  height: 100vh;
-  background: url('https://www.elespectador.com/resizer/ButiR_jjv_bLD4u1BfJtOEnAOvc=/arc-anglerfish-arc2-prod-elespectador/public/OK4OW4YXJNGQZKVKWWK2QK6WPA.jpg') 
-              no-repeat center center/cover;
+  background: url("https://www.metropol.gov.co/movilidad/PublishingImages/Paginas/transporte-publico/sitva/metro-medellin.jpg") no-repeat center center/cover;
+  height: 80vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  color: #fff;
+  color: white;
 }
 
-.hero-metro .overlay {
+.hero-transporte .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
 }
 
-.hero-metro .hero-text {
+.hero-content {
   position: relative;
   z-index: 2;
+  max-width: 800px;
+  padding: 20px;
 }
 
-.hero-metro h2 {
-  font-size: 3rem;
+.hero-content h2 {
+  font-size: 2.8rem;
   font-weight: 700;
-  color: #fff;
-  line-height: 1.2;
 }
 
-.hero-metro h2 .resaltado {
-  color: #f5d142;
+.hero-content .resaltado {
+  color: #8f57ff;
 }
 
-/* ======== SECCIÓN INFORMATIVA ======== */
-.info-metro {
-  background: #fff;
-  color: #000;
-  padding: 100px 40px;
-  text-align: center;
-}
-
-.info-metro .contenedor-info {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.info-metro h2 {
-  font-size: 2.2rem;
-  color: #2e00ff;
-  margin-bottom: 20px;
-}
-
-.info-metro p {
+.hero-content p {
+  margin: 1rem 0 2rem;
   font-size: 1.1rem;
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 40px;
 }
 
-/* Subbloques de información */
-.datos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+.btn-hero {
+  background: #8f57ff;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.dato {
-  background: linear-gradient(135deg, #f7f7ff, #e3e3ff);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  padding: 30px;
-  width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.btn-hero:hover {
+  background: #7a48e3;
 }
 
-.dato:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-.dato h3 {
-  color: #2e00ff;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.dato p {
-  color: #555;
-  font-size: 1rem;
-}
-
-/* 🔹 Descripción */
-.descripcion {
-  font-size: 1.2rem;
-  margin-top: 10px;
-  color: #fff;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-/* Contenedor general */
-.seccion-informativa {
-  background-image: url('https://www.elespectador.com/resizer/ButiR_jjv_bLD4u1BfJtOEnAOvc=/arc-anglerfish-arc2-prod-elespectador/public/OK4OW4YXJNGQZKVKWWK2QK6WPA.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  padding: 100px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-}
-
-.seccion-informativa .overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 60px;
-  border-radius: 20px;
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Galería de imágenes */
+/* =========================================================
+   🖼️ GALERÍA PRINCIPAL
+   ========================================================= */
 .galeria {
   display: flex;
-  justify-content: center; /* Centra las imágenes horizontalmente */
-  align-items: center;     /* Centra verticalmente (por si acaso) */
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin: 50px auto;
+  max-width: 1200px;
 }
 
-/* Cada imagen */
 .galeria img {
-  width: 250px;
-  height: 180px;
-  border-radius: 15px;
+  width: 350px;
+  height: 230px;
+  border-radius: 12px;
   object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
@@ -209,85 +140,228 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* --- Botón centrado --- */
 .btn-centro {
   display: block;
-  margin: 40px auto 0; /* ← esto lo centra horizontalmente */
-  background: linear-gradient(90deg, #2e00ff, #7a5fff);
+  width: fit-content;
+  margin: 20px auto 60px;
+  padding: 12px 25px;
+  background: #8f57ff;
   color: white;
   text-decoration: none;
-  padding: 12px 35px;
-  border-radius: 30px;
+  border-radius: 25px;
   font-weight: 600;
-  transition: 0.3s;
-  width: fit-content; /* ← se ajusta al contenido */
+  transition: background 0.3s;
 }
 
 .btn-centro:hover {
-  background: #5b33ff;
-  transform: scale(1.05);
+  background: #6d3ee9;
 }
 
-/* ======== GALERÍA DE TRANSPORTE ======== */
-.galeria-transporte {
-  background: linear-gradient(180deg, #2e00ff, #7a5fff);
-  color: #fff;
+/* =========================================================
+   🚆 INFORMACIÓN GENERAL
+   ========================================================= */
+.info-transporte {
   text-align: center;
-  padding: 80px 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.info-transporte h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.info-transporte p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* =========================================================
+   🚍 GALERÍA DE TRANSPORTE
+   ========================================================= */
+.galeria-transporte {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .galeria-transporte h2 {
-  font-size: 2.3rem;
-  margin-bottom: 50px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
-.galeria {
+.galeria-transporte .galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #f8f8ff;
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* =========================================================
+   ℹ️ DATOS EXTRA
+   ========================================================= */
+.info-extra {
+  background: #f5f6ff;
+  padding: 60px 20px;
+}
+
+.info-extra h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.datos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.galeria .card {
-  background: rgba(255, 255, 255, 0.1);
+.dato {
+  background: white;
+  padding: 25px;
   border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 280px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
-.galeria .card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+.dato:hover {
+  transform: translateY(-5px);
 }
 
-.galeria .card img {
+.dato h3 {
+  color: #8f57ff;
+  margin-bottom: 10px;
+}
+
+.dato p {
+  color: #555;
+}
+
+/* =========================================================
+   🤖 MASCOTA FLOTANTE
+   ========================================================= */
+.mascota {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 90px;
+  z-index: 1000;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(94, 0, 255, 0.5));
+  cursor: pointer;
+}
+
+.mascota img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  filter: brightness(0.9);
-  transition: filter 0.3s ease;
 }
 
-.galeria .card:hover img {
-  filter: brightness(1.1);
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
-.galeria .card h3 {
-  padding: 15px;
-  font-size: 1.1rem;
-  background: rgba(0, 0, 0, 0.4);
-  color: #ffd000;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+.mensaje-contacto {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 15px;
+  width: 260px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
-/* ======== RESPONSIVE ======== */
+.mascota:hover .mensaje-contacto,
+.mensaje-contacto.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mensaje-contacto::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 40px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #5b33ff;
+}
+
+/* =========================================================
+   ⚫ FOOTER
+   ========================================================= */
+footer {
+  text-align: center;
+  background: #111;
+  color: #ccc;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+/* =========================================================
+   📱 RESPONSIVE
+   ========================================================= */
 @media (max-width: 768px) {
-  .hero-metro h2 {
+  nav ul {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .hero-content h2 {
     font-size: 2rem;
+  }
+
+  .galeria img {
+    width: 90%;
   }
 
   .datos {
@@ -298,83 +372,6 @@ nav a:hover {
   .dato {
     width: 90%;
   }
-
-  .galeria {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* === MASCOTA === */
-.mascota {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 150px;
-  z-index: 1000;
-  animation: float 3.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(94, 0, 255, 0.6));
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-}
-
-.mascota:hover {
-  transform: scale(1.1) rotate(5deg);
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
-}
-
-.mascota img {
-  width: 100%;
-}
-
-/* Animación flotante */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* === MENSAJE FLOTANTE === */
-.mensaje-contacto {
-  position: fixed;
-  bottom: 140px;
-  right: 40px;
-  background: linear-gradient(135deg, #3a66ff, #9b5cff);
-  color: #fff;
-  padding: 18px 30px;
-  border-radius: 35px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  font-weight: 600;
-  font-size: 1rem;
-  z-index: 999;
-  max-width: 380px;
-  text-align: center;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-}
-
-.mensaje-contacto.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* === FOOTER === */
-footer {
-  background: #2e00ff;
-  text-align: center;
-  padding: 20px;
-  color: white;
-  font-size: 14px;
 }
 
 
