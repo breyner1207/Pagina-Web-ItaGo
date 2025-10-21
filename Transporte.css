@@ -1,0 +1,380 @@
+/* === RESET GENERAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === BODY === */
+body {
+  background: #fff;
+}
+
+/* === HEADER === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #2e00ff, #7a5fff);
+  padding: 10px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  -webkit-text-stroke: 1.2px #000;
+  text-shadow: 1.2px #000;
+}
+
+.ita {
+  color: #3774b8;
+  font-weight: 700;
+}
+
+.go {
+  color: #ffd500;
+  font-weight: 700;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+/* ==== SECCIÓN METRO ITAGÜÍ ==== */
+.hero-metro {
+  position: relative;
+  height: 100vh;
+  background: url('https://www.elespectador.com/resizer/ButiR_jjv_bLD4u1BfJtOEnAOvc=/arc-anglerfish-arc2-prod-elespectador/public/OK4OW4YXJNGQZKVKWWK2QK6WPA.jpg') 
+              no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-metro .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-metro .hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-metro h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.hero-metro h2 .resaltado {
+  color: #f5d142;
+}
+
+/* ======== SECCIÓN INFORMATIVA ======== */
+.info-metro {
+  background: #fff;
+  color: #000;
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.info-metro .contenedor-info {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.info-metro h2 {
+  font-size: 2.2rem;
+  color: #2e00ff;
+  margin-bottom: 20px;
+}
+
+.info-metro p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Subbloques de información */
+.datos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.dato {
+  background: linear-gradient(135deg, #f7f7ff, #e3e3ff);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dato:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.dato h3 {
+  color: #2e00ff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.dato p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* 🔹 Descripción */
+.descripcion {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Contenedor general */
+.seccion-informativa {
+  background-image: url('https://www.elespectador.com/resizer/ButiR_jjv_bLD4u1BfJtOEnAOvc=/arc-anglerfish-arc2-prod-elespectador/public/OK4OW4YXJNGQZKVKWWK2QK6WPA.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.seccion-informativa .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 60px;
+  border-radius: 20px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Galería de imágenes */
+.galeria {
+  display: flex;
+  justify-content: center; /* Centra las imágenes horizontalmente */
+  align-items: center;     /* Centra verticalmente (por si acaso) */
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+/* Cada imagen */
+.galeria img {
+  width: 250px;
+  height: 180px;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* --- Botón centrado --- */
+.btn-centro {
+  display: block;
+  margin: 40px auto 0; /* ← esto lo centra horizontalmente */
+  background: linear-gradient(90deg, #2e00ff, #7a5fff);
+  color: white;
+  text-decoration: none;
+  padding: 12px 35px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+  width: fit-content; /* ← se ajusta al contenido */
+}
+
+.btn-centro:hover {
+  background: #5b33ff;
+  transform: scale(1.05);
+}
+
+/* ======== GALERÍA DE TRANSPORTE ======== */
+.galeria-transporte {
+  background: linear-gradient(180deg, #2e00ff, #7a5fff);
+  color: #fff;
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.galeria-transporte h2 {
+  font-size: 2.3rem;
+  margin-bottom: 50px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.galeria .card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galeria .card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.galeria .card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.galeria .card:hover img {
+  filter: brightness(1.1);
+}
+
+.galeria .card h3 {
+  padding: 15px;
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: #ffd000;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .hero-metro h2 {
+    font-size: 2rem;
+  }
+
+  .datos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dato {
+    width: 90%;
+  }
+
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* === MASCOTA === */
+.mascota {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 150px;
+  z-index: 1000;
+  animation: float 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(94, 0, 255, 0.6));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.mascota:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+}
+
+.mascota img {
+  width: 100%;
+}
+
+/* Animación flotante */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* === MENSAJE FLOTANTE === */
+.mensaje-contacto {
+  position: fixed;
+  bottom: 140px;
+  right: 40px;
+  background: linear-gradient(135deg, #3a66ff, #9b5cff);
+  color: #fff;
+  padding: 18px 30px;
+  border-radius: 35px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 999;
+  max-width: 380px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.mensaje-contacto.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* === FOOTER === */
+footer {
+  background: #2e00ff;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 14px;
+}
+
+
