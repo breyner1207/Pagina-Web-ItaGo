@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itago Turismo | Transporte</title>
+  <link rel="stylesheet" href="transporte.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo">
+      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Arte</a></li>
+        <li><a href="#">Transporte</a></li>
+        <li><a href="#">Hospedaje</a></li>
+        <li><a href="#">Gastronomía</a></li>
+        <li><a href="#">Lugares</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Recorridos</a></li>
+        <li><a href="#">Historia</a></li>
+        <li><a href="#">Testimonios</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección Metro Itagüí -->
+<section class="hero-metro">
+  <div class="overlay"></div>
+  <div class="hero-text">
+    <h2>La movilidad que conecta <span class="resaltado">Itagüí</span></h2>
+    <p class="descripcion">Descubre la cultura, los sabores y la gente que hacen de Itagüí un lugar único.</p>
+  </div>
+</section>
+
+<div class="galeria">
+  <img src="https://live.staticflickr.com/7031/6623697769_f43414409d_b.jpg" alt="Estación Itagüí">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Estaci%C3%B3n_Sabaneta_%28Metro_de_Medell%C3%ADn%29.jpg" alt="Tren del Medios de Transporte">
+  <img src="https://www.metropol.gov.co/movilidad/PublishingImages/Paginas/transporte-publico/sitva/infografico-sitva.png" alt="Mapa de Transporte">
+</div>
+
+<a href="#" class="btn-centro">Explora Más Transporte</a>
+
+
+<!-- ======= INFORMACIÓN PRINCIPAL ======= -->
+<section class="info-metro">
+  <div class="contenedor-info">
+    <h2>Conectando la ciudad con eficiencia y sostenibilidad</h2>
+    <p>
+      El Metro de Itagüí es una pieza clave del sistema de transporte del Valle de Aburrá.
+      Su estación principal integra rutas de buses, taxis y bicicletas, ofreciendo una experiencia 
+      de movilidad rápida, segura y amigable con el medio ambiente.
+    </p>
+
+    <div class="datos">
+      <div class="dato">
+        <h3>📍 Ubicación</h3>
+        <p>Estación Itagüí – Línea A del Metro de Medellín</p>
+      </div>
+      <div class="dato">
+        <h3>🕒 Horarios</h3>
+        <p>Lunes a sábado: 4:30 a.m. – 11:00 p.m.<br>Domingos y festivos: 5:00 a.m. – 10:00 p.m.</p>
+      </div>
+      <div class="dato">
+        <h3>💳 Tarifa</h3>
+        <p>Desde $3.280 con tarjeta Cívica</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= GALERÍA DE TRANSPORTE ======= -->
+<section class="galeria-transporte">
+  <h2>Medios de transporte en Itagüí</h2>
+  <div class="galeria">
+    <div class="card">
+      <img src="https://i.ytimg.com/vi/4eK8mJFVRe8/maxresdefault.jpg" alt="Metro">
+      <h3>Metro</h3>
+    </div>
+    <div class="card">
+      <img src="https://live.staticflickr.com/5447/9122960692_65ed66fd25_b.jpg" alt="Metroplus">
+      <h3>Metroplús</h3>
+    </div>
+    <div class="card">
+      <img src="https://colombiavisible.com/wp-content/uploads/2022/03/encicla-web-dentro-2-1024x576.png" alt="Encicla">
+      <h3>Encicla</h3>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Mascota -->
+  <div class="mascota">
+    <img src="Logoitago.png" alt="Mascota Itago">
+    <div class="mensaje-contacto" id="mensajeContacto">
+      Contáctanos al +57 304 552 3816 para más información
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Itago Turismo. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Script Mascota -->
+  <script>
+    const mascota = document.querySelector('.mascota');
+    const mensaje = document.getElementById('mensajeContacto');
+
+    mascota.addEventListener('click', () => {
+      mensaje.classList.toggle('show');
+      if (mensaje.classList.contains('show')) {
+        setTimeout(() => mensaje.classList.remove('show'), 4000);
+      }
+    });
+  </script>
+
+</body>
+</html>
