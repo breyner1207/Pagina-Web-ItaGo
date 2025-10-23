@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itago Turismo | Alojamiento</title>
+  <link rel="stylesheet" href="alojamiento.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet.js -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+   <!-- ==================== ENCABEZADO ==================== -->
+  <header class="header">
+    <div class="logo">
+      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="arte.html" >Arte</a></li>
+        <li><a href="Gastronomia.html">Gastronomia</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="Alojamiento.html" class="activo">Alojamiento</a></li>
+        <li><a href="Transporte.html">Movilidad</a></li>
+        <li><a href="#">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero-alojamiento">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h2>Hospédate en Itagüí</h2>
+      <p>Descubre los mejores lugares para descansar y disfrutar tu estadía con comodidad y estilo.</p>
+    </div>
+  </section>
+
+  <section class="mapa-section">
+  <!-- 🗺️ MAPA -->
+  <div id="mapa"></div>
+
+  <!-- 🏨 LISTA DE HOTELES -->
+  <aside class="lista-hoteles">
+    <h2>🏆 Mejores Hoteles de Itagüí</h2>
+    <ul>
+      <!-- 🔹 TOP 5 (numerados) -->
+      <li data-lat="6.171" data-lng="-75.611" data-nombre="Hotel Central Park">
+        <span class="ranking">#1</span>
+        <img src="img/hotel-central.jpg" alt="Hotel Central Park">
+        <div>
+          <h3>Hotel Central Park</h3>
+          <p>Ubicado frente al parque principal. Reconocido por su atención y confort.</p>
+          <p class="estrellas">⭐⭐⭐⭐⭐ 4.9/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.175" data-lng="-75.605" data-nombre="Hotel Ditaires Plaza">
+        <span class="ranking">#2</span>
+        <img src="img/hotel-ditaires.jpg" alt="Hotel Ditaires Plaza">
+        <div>
+          <h3>Hotel Ditaires Plaza</h3>
+          <p>Modernidad y comodidad a pasos del estadio Ditaires.</p>
+          <p class="estrellas">⭐⭐⭐⭐⭐ 4.8/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.168" data-lng="-75.619" data-nombre="Hotel Golden House">
+        <span class="ranking">#3</span>
+        <img src="img/hotel-golden.jpg" alt="Hotel Golden House">
+        <div>
+          <h3>Hotel Golden House</h3>
+          <p>Confort, elegancia y excelente servicio. A pocos minutos de la estación Itagüí.</p>
+          <p class="estrellas">⭐⭐⭐⭐⭐ 4.7/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.178" data-lng="-75.602" data-nombre="Hostal Senda Verde">
+        <span class="ranking">#4</span>
+        <img src="img/hostal-senda.jpg" alt="Hostal Senda Verde">
+        <div>
+          <h3>Hostal Senda Verde</h3>
+          <p>Natural y tranquila. Ideal para viajeros ecológicos.</p>
+          <p class="estrellas">⭐⭐⭐⭐ 4.6/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.173" data-lng="-75.609" data-nombre="Hotel Águila Real">
+        <span class="ranking">#5</span>
+        <img src="img/hotel-aguila.jpg" alt="Hotel Águila Real">
+        <div>
+          <h3>Hotel Águila Real</h3>
+          <p>Excelente ubicación, ambiente familiar y desayuno incluido.</p>
+          <p class="estrellas">⭐⭐⭐⭐ 4.5/5</p>
+        </div>
+      </li>
+
+      <!-- 🔸 Más hoteles (sin ranking) -->
+      <li data-lat="6.170" data-lng="-75.609">
+        <img src="img/hotel-platinum.jpg" alt="Hotel Platinum Plaza">
+        <div>
+          <h3>Hotel Platinum Plaza</h3>
+          <p>Moderno hotel con terraza panorámica y atención profesional.</p>
+          <p class="estrellas">⭐⭐⭐⭐ 4.4/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.162" data-lng="-75.611">
+        <img src="img/hotel-alcaravan.jpg" alt="Hotel Alcaraván">
+        <div>
+          <h3>Hotel Alcaraván</h3>
+          <p>Ambiente tranquilo, piscina y zonas verdes. Ideal para familias.</p>
+          <p class="estrellas">⭐⭐⭐⭐ 4.3/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.174" data-lng="-75.610">
+        <img src="img/hotel-palermo.jpg" alt="Hotel Ayenda Palermo Suites">
+        <div>
+          <h3>Hotel Ayenda Palermo Suites</h3>
+          <p>Económico y confortable. Ideal para estancias cortas.</p>
+          <p class="estrellas">⭐⭐⭐ 4.2/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.169" data-lng="-75.617">
+        <img src="img/hotel-prado.jpg" alt="Hotel Prado Verde">
+        <div>
+          <h3>Hotel Prado Verde</h3>
+          <p>Ambiente natural con jardines y restaurante campestre.</p>
+          <p class="estrellas">⭐⭐⭐ 4.1/5</p>
+        </div>
+      </li>
+
+      <li data-lat="6.176" data-lng="-75.610">
+        <img src="img/hotel-naranjos.jpg" alt="Hotel Naranjos del Sur">
+        <div>
+          <h3>Hotel Naranjos del Sur</h3>
+          <p>Moderno, elegante y con spa incluido. Perfecto para escapadas románticas.</p>
+          <p class="estrellas">⭐⭐⭐ 4.0/5</p>
+        </div>
+      </li>
+    </ul>
+  </aside>
+</section>
+<!-- ================= CONSEJOS DE ALOJAMIENTO ================= -->
+<section class="consejos-section">
+  <h2>💡 Consejos para tu Estancia en Itagüí</h2>
+  <p class="intro">
+    Antes de reservar tu hotel, ten en cuenta estos consejos para disfrutar al máximo tu visita.  
+    Ya sea que viajes por trabajo, turismo o descanso, ¡aquí te ayudamos a elegir mejor!
+  </p>
+
+  <div class="consejos-grid">
+    <article class="consejo">
+      <img src="img/consejo-ubicacion.jpg" alt="Consejo sobre ubicación">
+      <h3>📍 Elige una buena ubicación</h3>
+      <p>Busca alojamientos cerca del centro o del metro de Itagüí para moverte con facilidad.  
+      Las zonas cercanas a Ditaires y al Parque Principal son ideales.</p>
+    </article>
+
+    <article class="consejo">
+      <img src="img/consejo-precio.jpg" alt="Consejo sobre precios">
+      <h3>💰 Compara precios y servicios</h3>
+      <p>Revisa plataformas como Booking o Google Maps para comparar tarifas,  
+      desayuno incluido, wifi y reseñas antes de reservar.</p>
+    </article>
+
+    <article class="consejo">
+      <img src="img/consejo-seguridad.jpg" alt="Consejo sobre seguridad">
+      <h3>🔒 Prioriza la seguridad</h3>
+      <p>Verifica que el hotel cuente con recepción 24h y buenas referencias de seguridad.  
+      Evita zonas alejadas o poco transitadas si viajas solo.</p>
+    </article>
+
+    <article class="consejo">
+      <img src="img/consejo-experiencia.jpg" alt="Consejo sobre experiencias">
+      <h3>🌿 Vive experiencias locales</h3>
+      <p>Muchos alojamientos ofrecen actividades culturales, gastronómicas o ecológicas.  
+      ¡Pregunta por ellas y vive Itagüí como un local!</p>
+    </article>
+  </div>
+</section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2025 Itago Turismo | Vive y descansa en Itagüí 🌆</p>
+  </footer>
+
+  <!-- =========================================================
+       🤖 MASCOTA & CHATBOT
+  ========================================================= -->
+  <div class="mascota" id="mascota">
+    <img src="Logoitago.png" alt="Mascota Itago" />
+    <div class="mensaje-contacto" id="mensajeContacto">
+      ¡Hola! Soy ItagoBot 🤖 ¿Quieres descubrir un buen lugar para comer?
+    </div>
+  </div>
+
+  <div class="chatbot" id="chatbot">
+    <div class="chat-output" id="chatOutput"></div>
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje y presiona Enter..." />
+  </div>
+
+  <script src="script-alojamiento.js"></script>
+  <script src="bot.js"></script>
+</body>
+</html>

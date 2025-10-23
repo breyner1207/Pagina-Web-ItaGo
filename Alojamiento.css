@@ -1,15 +1,15 @@
 /* =========================================================
-   🟣 RESET GENERAL
+   🎨 ESTILOS GENERALES
    ========================================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background: linear-gradient(180deg, #0a0033, #13004d);
+  font-family: 'Poppins', sans-serif;
+  background: #0d0b1a;
   color: #fff;
   overflow-x: hidden;
 }
@@ -27,7 +27,7 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .logo h1 {
@@ -64,209 +64,233 @@ nav a.activo {
 }
 
 /* =========================================================
-   🟣 HERO TRANSPORTE
+   🏨 HERO SECTION
    ========================================================= */
-.hero-transporte {
+.hero-alojamiento {
   position: relative;
-  height: 90vh;
-  background: url("Movilidad.jpg") center/cover no-repeat;
+  height: 60vh;
+  background: url("hotel-central-plaza.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  text-align: center;
 }
 
-.hero-transporte::after {
-  content: "";
+.hero-alojamiento .overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 40, 0.55);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(10, 0, 35, 0.6);
 }
 
 .hero-content {
-  text-align: center;
-  color: #fff;
+  position: relative;
   z-index: 2;
-  max-width: 800px;
-  padding: 0 20px;
+  color: white;
+  max-width: 700px;
+  padding: 20px;
 }
 
 .hero-content h2 {
   font-size: 2.8rem;
-  font-weight: 700;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-.hero-content span {
-  color: #ffd500;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #a46eff, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-  margin: 1.2rem 0 2rem;
   font-size: 1.1rem;
+  color: #ddd;
 }
 
-.btn-hero {
-  background: linear-gradient(135deg, #5b33ff, #2e00ff);
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+/* ===== CONTENEDOR GENERAL ===== */
+.mapa-section {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  align-items: flex-start;
 }
 
-.btn-hero:hover {
-  background: linear-gradient(135deg, #7a5fff, #5b33ff);
-  transform: translateY(-3px);
+/* ===== MAPA ===== */
+#mapa {
+  width: 1500px;
+  height: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* =========================================================
-   🟣 INTRODUCCIÓN
-   ========================================================= */
-.intro-transporte {
-  text-align: center;
-  padding: 100px 10%;
+/* ===== LISTA DE HOTELES ===== */
+.lista-hoteles {
+  width: 40%;
+  max-height: 600px;
   background: #fff;
-  color: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 1rem;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
-.intro-transporte h2 {
-  font-size: 2rem;
-  color: #2e00ff;
+/* Ocultar barra o personalizar */
+.lista-hoteles::-webkit-scrollbar {
+  width: 8px;
+}
+.lista-hoteles::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+.lista-hoteles::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* ===== LISTA ===== */
+.lista-hoteles h2 {
   margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #5b33ff;
 }
 
-.intro-transporte p {
-  font-size: 1.05rem;
-  max-width: 850px;
-  margin: 0 auto;
+.lista-hoteles ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista-hoteles li {
+  background: #fafafa;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.lista-hoteles li:hover {
+  transform: scale(1.02);
+}
+
+.lista-hoteles img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.lista-hoteles div {
+  padding: 0.7rem 1rem;
+}
+
+.lista-hoteles h3 {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #222;
+}
+
+.lista-hoteles p {
+  margin: 0.2rem 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.estrellas {
+  font-weight: bold;
+  color: #f39c12;
+}
+
+.ranking {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffb703;
+  color: white;
+  font-weight: bold;
+  padding: 0.4rem 0.7rem;
+  border-radius: 12px 0 12px 0;
+}
+/* =========================================================
+   💡 CONSEJOS DE ALOJAMIENTO
+   ========================================================= */
+.consejos-section {
+  background: linear-gradient(180deg, #1a1735 0%, #120f24 100%);
+  color: #fff;
+  padding: 80px 10%;
+  text-align: center;
+  position: relative;
+}
+
+.consejos-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #a46eff, #ffd500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.consejos-section .intro {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  font-size: 1rem;
+  color: #cfcfcf;
   line-height: 1.6;
 }
 
-/* =========================================================
-   🟣 GALERÍA DE TRANSPORTE
-   ========================================================= */
-.galeria-transporte {
-  padding: 80px 6%;
-  background: linear-gradient(180deg, #1b0066, #2e00ff);
-  text-align: center;
-}
-
-.galeria-transporte h2 {
-  color: #ffd500;
-  font-size: 2rem;
-  text-shadow: 0 0 12px rgba(255, 208, 0, 0.4);
-  margin-bottom: 2.5rem;
-}
-
-.grid-transporte {
+.consejos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
-.card {
-  background: #fff;
-  color: #000;
+.consejo {
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  transition: transform 0.3s, box-shadow 0.3s;
-  overflow: hidden;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card h3 {
-  color: #5b33ff;
-  font-size: 1.2rem;
-  margin: 1rem 0 0.5rem;
-}
-
-.card:hover {
+.consejo:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
+.consejo img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.consejo h3 {
+  font-size: 1.1rem;
+  color: #ffd500;
+  margin-bottom: 8px;
+}
+
+.consejo p {
+  font-size: 0.95rem;
+  color: #eaeaea;
+  line-height: 1.5;
+}
+
+
 /* =========================================================
-   🟣 INFORMACIÓN EXTRA
+   🦶 FOOTER
    ========================================================= */
-.info-extra {
-  background: #fff;
-  color: #000;
+footer {
+  background: #0d0b1a;
   text-align: center;
-  padding: 80px 8%;
-}
-
-.info-extra h2 {
-  color: #2e00ff;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.datos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.dato {
-  background: linear-gradient(135deg, #f3f3f3, #eaeaff);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  padding: 1.5rem;
-  width: 280px;
-}
-
-.dato h3 {
-  color: #5b33ff;
-  margin-bottom: 0.6rem;
+  padding: 25px;
+  color: #999;
+  border-top: 1px solid #2e2b4f;
 }
 
 /* =========================================================
-   🟣 CTA FINAL
-   ========================================================= */
-.cta-transporte {
-  background: linear-gradient(90deg, #2e00ff, #7a5fff);
-  color: white;
-  text-align: center;
-  padding: 100px 10%;
-}
-
-.cta-transporte h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.cta-transporte p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.cta-transporte .btn {
-  background: #ffd500;
-  color: #000;
-  padding: 12px 28px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s;
-}
-
-.cta-transporte .btn:hover {
-  background: #fff;
-  color: #2e00ff;
-  transform: scale(1.05);
-}
-
-/* =========================================================
-   🤖 MASCOTA & CHATBOT
+   🤖 MASCOTA & CHATBOT (UNIFICADO)
    ========================================================= */
 .mascota {
   position: fixed;
@@ -289,7 +313,6 @@ nav a.activo {
   100% { transform: translateY(0px); }
 }
 
-/* Tooltip del chatbot */
 .mensaje-contacto {
   position: absolute;
   bottom: 90px;
@@ -322,7 +345,6 @@ nav a.activo {
   border-top: 8px solid #a200ff;
 }
 
-/* Caja del chatbot */
 .chatbot {
   position: fixed;
   bottom: 140px;
@@ -339,7 +361,6 @@ nav a.activo {
   z-index: 1100;
 }
 
-/* Mensajes */
 .chat-output {
   max-height: 300px;
   overflow-y: auto;
@@ -369,7 +390,6 @@ nav a.activo {
   align-self: flex-end;
 }
 
-/* Input */
 #userInput {
   border: none;
   border-radius: 15px;
@@ -379,9 +399,7 @@ nav a.activo {
   color: white;
   margin-top: 5px;
 }
-/* =========================================================
-   💬 BOTONES DEL CHATBOT
-   ========================================================= */
+
 .boton-opcion {
   background: linear-gradient(135deg, #5b33ff, #2e00ff);
   color: white;
@@ -404,15 +422,30 @@ nav a.activo {
 }
 
 /* =========================================================
-   🟣 FOOTER
+   📱 RESPONSIVE
    ========================================================= */
-footer {
-  background: #2e00ff;
-  text-align: center;
-  padding: 20px;
-  color: white;
-  font-size: 14px;
-  position: relative;
-  z-index: 1;
-}
+@media (max-width: 900px) {
+  .mapa-section {
+    flex-direction: column;
+  }
 
+  #mapa {
+    height: 50vh;
+    border-right: none;
+  }
+
+  .lista-hoteles {
+    height: auto;
+  }
+
+  .lista-hoteles li {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lista-hoteles img {
+    width: 90%;
+    height: 150px;
+  }
+}
