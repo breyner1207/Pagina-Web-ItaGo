@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itago Turismo | Eventos</title>
+  <link rel="stylesheet" href="eventos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ==================== ENCABEZADO ==================== -->
+  <header class="header">
+    <div class="logo">
+      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="arte.html">Arte</a></li>
+        <li><a href="Gastronomia.html">Gastronomia</a></li>
+        <li><a href="eventos.html" class="activo">Eventos</a></li>
+        <li><a href="#">Alojamiento</a></li>
+        <li><a href="Transporte.html">Movilidad</a></li>
+        <li><a href="#">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero-eventos">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h2>Eventos de Itagüí</h2>
+      <p>Vive la cultura, la música y la alegría que llenan de vida las calles de Itagüí durante todo el año.</p>
+    </div>
+  </section>
+
+  <!-- ================= EVENTOS DESTACADOS ================= -->
+  <section class="eventos-destacados">
+    <h2>🌟 Eventos Destacados</h2>
+    <div class="grid-eventos">
+      <article class="evento">
+        <img src="img/evento-arte.jpg" alt="Festival Itagüí Vive el Arte">
+        <div class="info">
+          <h3>Festival Itagüí Vive el Arte</h3>
+          <p>Un evento anual que celebra el talento local con exposiciones, murales, música y danza. ¡El arte se toma las calles!</p>
+          <span class="fecha">Junio 2025</span>
+        </div>
+      </article>
+
+      <article class="evento">
+        <img src="img/evento-gastronomia.jpg" alt="Feria Gastronómica">
+        <div class="info">
+          <h3>Feria Gastronómica de Itagüí</h3>
+          <p>Sabores tradicionales y fusiones modernas en un solo lugar. Ideal para amantes de la buena comida. 🍲</p>
+          <span class="fecha">Agosto 2025</span>
+        </div>
+      </article>
+
+      <article class="evento">
+        <img src="img/evento-navidad.jpg" alt="Festival de Luces">
+        <div class="info">
+          <h3>Festival de Luces y Navidad</h3>
+          <p>Itagüí brilla con luces, música y desfiles que llenan de magia cada rincón de la ciudad. 🎄</p>
+          <span class="fecha">Diciembre 2025</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CALENDARIO INTERACTIVO ================= -->
+  <section class="calendario">
+    <h2>📅 Calendario de Eventos</h2>
+    <div class="calendario-container">
+      <div class="calendario-header">
+        <button id="prevMonth">◀</button>
+        <h3 id="monthYear"></h3>
+        <button id="nextMonth">▶</button>
+      </div>
+      <div class="calendario-grid" id="calendar"></div>
+    </div>
+
+    <!-- Modal de evento -->
+    <div id="eventModal" class="event-modal oculto">
+      <div class="event-content">
+        <span id="closeModal">&times;</span>
+        <h3 id="eventTitle"></h3>
+        <p id="eventDescription"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2025 Itago Turismo | Descubre Itagüí con nosotros 🌆</p>
+  </footer>
+
+ <!-- ==================== MASCOTA ==================== -->
+  <div class="mascota" id="mascota">
+    <img src="Logoitago.png" alt="Mascota Itago">
+    <div class="mensaje-contacto" id="mensajeContacto">
+      ¡Hola! Soy ItagoBot 🤖 Puedo ayudarte a encontrar información sobre Eventos en Itagüí.
+    </div>
+  </div>
+
+  <!-- ==================== CHATBOT ==================== -->
+  <div class="chatbot" id="chatbot">
+    <div class="chat-output" id="chatOutput"></div>
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje y presiona Enter..." />
+  </div>
+
+  <script src="script-eventos.js"></script>
+</body>
+</html>

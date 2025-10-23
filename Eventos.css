@@ -1,6 +1,10 @@
 /* =========================================================
-   🟣 RESET GENERAL
+   🎉 EVENTOS.CSS — Página de Eventos de Itagüí
+   Basado en arte.css, adaptado para eventos y calendario
+   Autor: Garetto
    ========================================================= */
+
+/* === RESET GENERAL === */
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +13,8 @@
 }
 
 body {
-  background: linear-gradient(180deg, #0a0033, #13004d);
-  color: #fff;
+  background-color: #f4f4f9;
+  color: #222;
   overflow-x: hidden;
 }
 
@@ -27,7 +31,7 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .logo h1 {
@@ -64,205 +68,233 @@ nav a.activo {
 }
 
 /* =========================================================
-   🟣 HERO TRANSPORTE
+   🖼️ HERO EVENTOS
    ========================================================= */
-.hero-transporte {
-  position: relative;
+.hero-eventos {
   height: 90vh;
-  background: url("https://www.itagui.gov.co/sites/default/files/2022-08/metro-itagui_0.jpg") center/cover no-repeat;
+  background: url("img/fondo-eventos.jpg") center/cover no-repeat;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
-.hero-transporte::after {
-  content: "";
+.hero-eventos .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 40, 0.55);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .hero-content {
-  text-align: center;
-  color: #fff;
+  position: relative;
   z-index: 2;
+  text-align: center;
+  color: white;
   max-width: 800px;
   padding: 0 20px;
 }
 
 .hero-content h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-.hero-content span {
+  font-size: 3rem;
   color: #ffd500;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .hero-content p {
-  margin: 1.2rem 0 2rem;
-  font-size: 1.1rem;
-}
-
-.btn-hero {
-  background: linear-gradient(135deg, #5b33ff, #2e00ff);
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.btn-hero:hover {
-  background: linear-gradient(135deg, #7a5fff, #5b33ff);
-  transform: translateY(-3px);
+  font-size: 1.2rem;
+  margin-top: 15px;
 }
 
 /* =========================================================
-   🟣 INTRODUCCIÓN
+   🌟 EVENTOS DESTACADOS
    ========================================================= */
-.intro-transporte {
+.eventos-destacados {
+  padding: 100px 40px;
+  background: linear-gradient(180deg, #ffffff 0%, #f1eeff 100%);
   text-align: center;
-  padding: 100px 10%;
-  background: #fff;
-  color: #000;
 }
 
-.intro-transporte h2 {
+.eventos-destacados h2 {
   font-size: 2rem;
   color: #2e00ff;
-  margin-bottom: 1rem;
+  margin-bottom: 40px;
 }
 
-.intro-transporte p {
-  font-size: 1.05rem;
-  max-width: 850px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* =========================================================
-   🟣 GALERÍA DE TRANSPORTE
-   ========================================================= */
-.galeria-transporte {
-  padding: 80px 6%;
-  background: linear-gradient(180deg, #1b0066, #2e00ff);
-  text-align: center;
-}
-
-.galeria-transporte h2 {
-  color: #ffd500;
-  font-size: 2rem;
-  text-shadow: 0 0 12px rgba(255, 208, 0, 0.4);
-  margin-bottom: 2.5rem;
-}
-
-.grid-transporte {
+.grid-eventos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.card {
+.evento {
   background: #fff;
-  color: #000;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card img {
+.evento img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
 }
 
-.card h3 {
+.evento .info {
+  padding: 20px;
+}
+
+.evento h3 {
   color: #5b33ff;
-  font-size: 1.2rem;
-  margin: 1rem 0 0.5rem;
+  margin-bottom: 10px;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+.evento p {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
 }
 
-/* =========================================================
-   🟣 INFORMACIÓN EXTRA
-   ========================================================= */
-.info-extra {
-  background: #fff;
-  color: #000;
-  text-align: center;
-  padding: 80px 8%;
-}
-
-.info-extra h2 {
-  color: #2e00ff;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.datos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.dato {
-  background: linear-gradient(135deg, #f3f3f3, #eaeaff);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  padding: 1.5rem;
-  width: 280px;
-}
-
-.dato h3 {
-  color: #5b33ff;
-  margin-bottom: 0.6rem;
-}
-
-/* =========================================================
-   🟣 CTA FINAL
-   ========================================================= */
-.cta-transporte {
-  background: linear-gradient(90deg, #2e00ff, #7a5fff);
-  color: white;
-  text-align: center;
-  padding: 100px 10%;
-}
-
-.cta-transporte h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.cta-transporte p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-}
-
-.cta-transporte .btn {
+.evento .fecha {
+  display: inline-block;
   background: #ffd500;
   color: #000;
-  padding: 12px 28px;
-  border-radius: 40px;
-  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
   font-weight: 600;
-  transition: all 0.3s;
 }
 
-.cta-transporte .btn:hover {
-  background: #fff;
-  color: #2e00ff;
-  transform: scale(1.05);
+.evento:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   📅 CALENDARIO INTERACTIVO
+   ========================================================= */
+.calendario {
+  background: #1a1a1a;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+}
+
+.calendario h2 {
+  color: #ffd500;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.calendario-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 25px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendario-header h3 {
+  font-size: 1.5rem;
+  color: #ffd500;
+}
+
+.calendario-header button {
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.calendario-header button:hover {
+  background: linear-gradient(135deg, #ffd500, #ffb700);
+  color: #000;
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendario-grid div {
+  padding: 15px 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.calendario-grid div:hover {
+  background: #ffd500;
+  color: #000;
+}
+
+.calendario-grid .hoy {
+  background: #5b33ff;
+  color: white;
+  font-weight: bold;
+}
+
+.calendario-grid .evento-dia {
+  background: #ffd500;
+  color: #000;
+  font-weight: 700;
+  border: 2px solid #fff;
+}
+
+/* Modal de evento */
+.event-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.event-modal.oculto {
+  display: none;
+}
+
+.event-content {
+  background: white;
+  color: #111;
+  padding: 25px;
+  border-radius: 18px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+#closeModal {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
 }
 
 /* =========================================================
@@ -404,7 +436,7 @@ nav a.activo {
 }
 
 /* =========================================================
-   🟣 FOOTER
+   🦶 FOOTER
    ========================================================= */
 footer {
   background: #2e00ff;
@@ -412,7 +444,4 @@ footer {
   padding: 20px;
   color: white;
   font-size: 14px;
-  position: relative;
-  z-index: 1;
 }
-
