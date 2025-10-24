@@ -1,5 +1,5 @@
 // ==================================================
-// 🤖 CHATBOT LOCAL ITAGO - SECCIÓN NOSOTROS (Versión funcional)
+// 💬 CHATBOT LOCAL ITAGO - SECCIÓN NOSOTROS
 // ==================================================
 
 // --- ELEMENTOS DEL DOM ---
@@ -12,111 +12,100 @@ const mensaje = document.getElementById("mensajeContacto");
 let abierto = false;
 
 // ===============================
-// 💜 DICCIONARIO DE RESPUESTAS — NOSOTROS
+// 🧭 DICCIONARIO DE RESPUESTAS — NOSOTROS
 // ===============================
 const respuestas = {
   "hola": {
-    mensaje: "👋 ¡Hola! Soy ItagoBot 🤖 Bienvenido a la sección *Nosotros*. Aquí conocerás quiénes somos, qué hacemos y cómo puedes dejar tu opinión.",
-    botones: ["¿Quiénes somos?", "Nuestra misión", "Nuestro equipo", "Comentarios", "Contacto"]
+    mensaje: "👋 ¡Hola! Soy ItagoBot, tu asistente de información y contacto. Estoy aquí para contarte más sobre Itago Turismo y cómo comunicarte con nosotros.",
+    botones: ["Información", "Opiniones", "Contacto", "Soporte"]
   },
-  "¿quiénes somos?": {
-    mensaje: "🌍 *Itago Turismo* es un proyecto dedicado a promover las maravillas culturales, gastronómicas y turísticas de Itagüí. Nuestro objetivo es conectar a las personas con experiencias únicas en la ciudad.",
-    botones: ["Nuestra misión", "Nuestro equipo", "Comentarios", "Regresar"]
+
+  // ====== INFORMACIÓN ======
+  "información": {
+    mensaje: "🌎 **Itago Turismo** es una iniciativa local de Itagüí dedicada a promover el turismo, la movilidad y las experiencias culturales de nuestra ciudad.",
+    botones: ["Misión y visión", "Equipo", "Opiniones", "Regresar"]
   },
-  "nuestra misión": {
-    mensaje: "🎯 Nuestra misión es impulsar el turismo sostenible y local, promoviendo la identidad cultural de Itagüí y generando oportunidades para emprendedores y artistas locales.",
-    botones: ["Nuestros valores", "Nuestro equipo", "Comentarios", "Regresar"]
+
+  "misión y visión": {
+    mensaje: "🎯 **Misión:** Fomentar el turismo sostenible y la movilidad consciente en Itagüí.\n\n🚀 **Visión:** Ser el principal referente turístico local, conectando personas con lugares y experiencias únicas.",
+    botones: ["Equipo", "Opiniones", "Regresar"]
   },
-  "nuestros valores": {
-    mensaje: "💫 Nuestros valores son:\n\n• Compromiso con la comunidad\n• Transparencia y respeto\n• Innovación en experiencias\n• Sostenibilidad ambiental",
-    botones: ["Nuestra misión", "Nuestro equipo", "Comentarios", "Regresar"]
+
+  "equipo": {
+    mensaje: "👥 Nuestro equipo está conformado por profesionales apasionados por el diseño, la comunicación y la cultura local. Creemos en el turismo responsable y la conexión humana.",
+    botones: ["Opiniones", "Contacto", "Regresar"]
   },
-  "nuestro equipo": {
-    mensaje: "👥 Nuestro equipo está conformado por profesionales apasionados del turismo, el arte y la comunicación visual. Juntos trabajamos para mostrar lo mejor de Itagüí al mundo. 🌎",
-    botones: ["¿Quiénes somos?", "Comentarios", "Contacto", "Regresar"]
+
+  // ====== OPINIONES ======
+  "opiniones": {
+    mensaje: "💬 ¡Queremos saber de ti! Puedes dejar tu comentario en la sección de **Opiniones y Comentarios** justo aquí en la página, o enviarnos tu experiencia directamente por correo o WhatsApp.",
+    botones: ["Dejar opinión", "Contacto", "Regresar"]
   },
-  "comentarios": {
-    mensaje: "🗨️ ¡Nos encantaría saber tu opinión! Puedes dejar tu comentario al final de esta página. Tus aportes nos ayudan a mejorar cada día 💜",
+
+  "dejar opinión": {
+    mensaje: "📝 Para dejar tu opinión, baja un poco hasta la sección de comentarios y comparte tu experiencia. ¡Tu voz es muy valiosa para nosotros!",
     botones: ["Contacto", "Regresar"]
   },
+
+  // ====== CONTACTO ======
   "contacto": {
-    mensaje: "📩 Puedes escribirnos a **contacto@itago.com** o por WhatsApp al **+57 304 552 3816**. ¡Estaremos felices de atenderte!",
-    botones: ["¿Quiénes somos?", "Comentarios", "Regresar"]
+    mensaje: "📩 Puedes contactarnos a través de:\n\n- Email: contacto@itago.com\n- WhatsApp: +57 312 456 7890\n- Dirección: Calle 50 #45-30, Itagüí, Antioquia\n\n¡Te responderemos pronto!",
+    botones: ["Opiniones", "Soporte", "Regresar"]
   },
+
+  // ====== SOPORTE ======
+  "soporte": {
+    mensaje: "⚙️ Si tienes dudas sobre el sitio web, problemas técnicos o sugerencias, escríbenos. ¡Queremos mejorar contigo!",
+    botones: ["Contacto", "Regresar"]
+  },
+
+  // ====== FRASES GENÉRICAS ======
   "gracias": {
-    mensaje: "😊 ¡Con gusto! Gracias por visitar nuestra sección. Tu opinión hace crecer este proyecto.",
-    botones: ["Comentarios", "Contacto", "Regresar"]
+    mensaje: "🙏 ¡Gracias a ti! Tu opinión nos ayuda a crecer y mejorar nuestros servicios.",
+    botones: ["Información", "Opiniones", "Contacto"]
   },
+
   "regresar": {
-    mensaje: "¿Sobre qué te gustaría saber?",
-    botones: ["¿Quiénes somos?", "Nuestra misión", "Nuestro equipo", "Comentarios", "Contacto"]
+    mensaje: "¿Qué deseas hacer ahora?",
+    botones: ["Información", "Opiniones", "Contacto", "Soporte"]
   },
+
   "adiós": {
-    mensaje: "👋 ¡Hasta pronto! Gracias por conocer más sobre nosotros. 💜",
+    mensaje: "👋 ¡Hasta pronto! Gracias por visitar Itago Turismo.",
     botones: []
   }
 };
 
 // ==================================================
-// ⚙️ FUNCIONALIDAD PRINCIPAL DEL CHATBOT
+// ⚙️ FUNCIONALIDAD PRINCIPAL
 // ==================================================
-window.addEventListener("DOMContentLoaded", () => {
-  chatbot.style.display = "none"; // inicia oculto
 
-  // Mostrar tooltip al pasar el mouse
-  mascota.addEventListener("mouseenter", () => {
-    mensaje.style.opacity = 1;
-    mensaje.style.transform = "translateY(0)";
-  });
+// Mostrar mensaje de saludo al cargar
+window.addEventListener("load", () => {
+  abierto = true;
+  chatbot.style.display = "none";
+  mostrarRespuestaBot(obtenerRespuestaLocal("hola"));
+});
 
-  mascota.addEventListener("mouseleave", () => {
-    mensaje.style.opacity = 0;
-    mensaje.style.transform = "translateY(10px)";
-  });
+// Mostrar mensaje flotante al pasar el mouse
+mascota.addEventListener("mouseenter", () => mensaje.classList.add("show"));
+mascota.addEventListener("mouseleave", () => mensaje.classList.remove("show"));
 
-  // ✅ Abrir o cerrar el chat al hacer clic en la mascota
-  mascota.addEventListener("click", (e) => {
-    e.stopPropagation();
-    abierto = !abierto;
+// Abrir o cerrar el chat al hacer clic en la mascota
+mascota.addEventListener("click", () => {
+  abierto = !abierto;
+  chatbot.style.display = abierto ? "flex" : "none";
+});
 
-    if (abierto) {
-      chatbot.classList.add("activo");
-      chatbot.style.display = "flex";
-
-      // Si es la primera vez que se abre, inicia el saludo
-      if (chatOutput.childElementCount === 0) {
-        mostrarRespuestaBot(obtenerRespuestaLocal("hola"));
-      }
-    } else {
-      chatbot.classList.remove("activo");
-      chatbot.style.display = "none";
-    }
-  });
-
-  // ✅ Cerrar el chatbot si se hace clic fuera
-  document.addEventListener("click", (e) => {
-    if (abierto && !chatbot.contains(e.target) && !mascota.contains(e.target)) {
-      abierto = false;
-      chatbot.classList.remove("activo");
-      chatbot.style.display = "none";
-    }
-  });
-
-  // Enviar mensaje con Enter
-  if (userInput) {
-    userInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        const texto = userInput.value.trim();
-        if (texto === "") return;
-        agregarMensaje("Tú", texto);
-        userInput.value = "";
-        mostrarRespuestaBot(obtenerRespuestaLocal(texto));
-      }
-    });
+// Enviar mensaje con Enter
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    const texto = userInput.value.trim();
+    if (texto === "") return;
+    agregarMensaje("Tú", texto);
+    userInput.value = "";
+    mostrarRespuestaBot(obtenerRespuestaLocal(texto));
   }
-
-  // Cargar comentarios al iniciar
-  cargarComentarios();
 });
 
 // ==================================================
@@ -124,8 +113,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // ==================================================
 function agregarMensaje(remitente, texto) {
   const div = document.createElement("div");
-  div.classList.add(remitente === "Tú" ? "user" : "bot");
-  div.innerHTML = texto;
+  div.innerHTML = `<strong class="remitente">${remitente}:</strong> <span class="mensaje">${texto}</span>`;
   chatOutput.appendChild(div);
   chatOutput.scrollTop = chatOutput.scrollHeight;
 }
@@ -133,8 +121,8 @@ function agregarMensaje(remitente, texto) {
 function obtenerRespuestaLocal(texto) {
   const key = texto.toLowerCase();
   return respuestas[key] || {
-    mensaje: "No entendí eso 🚏. Puedes preguntar por nuestra misión, equipo o contacto.",
-    botones: ["¿Quiénes somos?", "Nuestra misión", "Nuestro equipo", "Comentarios", "Contacto"]
+    mensaje: "🤔 No entendí eso. Puedes preguntarme por **información**, **opiniones**, o **contacto**.",
+    botones: ["Información", "Opiniones", "Contacto"]
   };
 }
 
