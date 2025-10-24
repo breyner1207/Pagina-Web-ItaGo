@@ -96,7 +96,7 @@ const respuestas = {
 // Mostrar mensaje de saludo al cargar
 window.addEventListener("load", () => {
   abierto = true;
-  chatbot.style.display = "flex";
+  chatbot.style.display = "none";
   mostrarRespuestaBot(obtenerRespuestaLocal("hola"));
 });
 

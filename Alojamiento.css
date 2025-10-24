@@ -282,10 +282,10 @@ nav a.activo {
    🦶 FOOTER
    ========================================================= */
 footer {
-  background: #0d0b1a;
+  background: #2e00ff;
   text-align: center;
   padding: 25px;
-  color: #999;
+  color: #fafafa;
   border-top: 1px solid #2e2b4f;
 }
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itago Turismo | Nosotros</title>
+  <link rel="stylesheet" href="nosotros.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- ==================== ENCABEZADO ==================== -->
+  <header class="header">
+    <div class="logo">
+      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="arte.html">Arte</a></li>
+        <li><a href="Gastronomia.html">Gastronomía</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="Alojamiento.html">Alojamiento</a></li>
+        <li><a href="Transporte.html">Movilidad</a></li>
+        <li><a href="nosotros.html" class="activo">Nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero-nosotros">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h2>Conoce a Itago Turismo</h2>
+      <p>Promovemos la cultura, el turismo y la sostenibilidad en Itagüí y el Valle de Aburrá. 💚</p>
+    </div>
+  </section>
+
+  <!-- ==================== SECCIÓN SOBRE NOSOTROS ==================== -->
+  <section class="nosotros-info">
+    <div class="contenedor">
+      <h2>🌍 Quiénes Somos</h2>
+      <p><strong>Itago Turismo</strong> nació con la idea de conectar a los viajeros, locales y visitantes con las experiencias más auténticas del municipio de Itagüí. Somos un equipo de apasionados por la cultura, la innovación y el desarrollo sostenible.</p>
+    </div>
+
+    <div class="bloques">
+      <article>
+        <h3>🎯 Misión</h3>
+        <p>Promover el turismo local mediante herramientas digitales innovadoras que inspiren a descubrir, disfrutar y valorar el patrimonio cultural y natural de Itagüí.</p>
+      </article>
+      <article>
+        <h3>👁️ Visión</h3>
+        <p>Ser la plataforma líder de turismo en Antioquia, reconocida por su impacto social, cultural y ambiental, potenciando el desarrollo sostenible del territorio.</p>
+      </article>
+      <article>
+        <h3>🚀 Objetivos</h3>
+        <ul>
+          <li>Fomentar el turismo responsable y sostenible.</li>
+          <li>Apoyar a los emprendedores locales y sus servicios.</li>
+          <li>Impulsar la cultura y los eventos de Itagüí.</li>
+          <li>Conectar viajeros con experiencias únicas y seguras.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== EQUIPO ==================== -->
+  <section class="equipo">
+    <h2>👨‍💼 Nuestro Equipo</h2>
+    <div class="grid-equipo">
+      <div class="miembro">
+        <img src="img/team1.jpg" alt="Miembro del equipo" />
+        <h3>Laura Pérez</h3>
+        <p>Directora de Proyectos</p>
+      </div>
+      <div class="miembro">
+        <img src="img/team2.jpg" alt="Miembro del equipo" />
+        <h3>Carlos Gómez</h3>
+        <p>Diseñador UX/UI</p>
+      </div>
+      <div class="miembro">
+        <img src="img/team3.jpg" alt="Miembro del equipo" />
+        <h3>María Torres</h3>
+        <p>Gestora Cultural</p>
+      </div>
+      <div class="miembro">
+        <img src="img/team4.jpg" alt="Miembro del equipo" />
+        <h3>Julián Ramírez</h3>
+        <p>Desarrollador Web</p>
+      </div>
+    </div>
+  </section>
+
+<!-- ==================== COMENTARIOS + CONTACTO ==================== -->
+<section class="comentarios-contacto">
+  <div class="comentarios">
+    <h2>💬 Comparte tu Opinión</h2>
+    <p>Queremos conocer tu experiencia o tus ideas para mejorar Itago Turismo. Deja tu comentario 👇</p>
+
+    <form id="formComentario">
+      <input type="text" id="nombre" placeholder="Tu nombre" required />
+      <textarea id="mensaje" placeholder="Escribe tu comentario..." required></textarea>
+      <button type="submit">Enviar comentario</button>
+    </form>
+
+    <div class="comentarios-lista">
+      <h3>🗒️ Comentarios de los Visitantes</h3>
+      <div id="listaComentarios"></div>
+    </div>
+  </div>
+
+  <div class="contacto">
+    <h2>📞 Contáctanos</h2>
+    <p>Si tienes dudas, propuestas o deseas colaborar con nosotros, no dudes en escribirnos.</p>
+    <div class="info-contacto">
+      <p><strong>📍 Dirección:</strong> Calle 50 #45-30, Itagüí, Antioquia</p>
+      <p><strong>📧 Email:</strong> contacto@itago.com</p>
+      <p><strong>📱 Teléfono:</strong> +57 312 456 7890</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p>© 2025 Itago Turismo | Impulsando el turismo local 💚</p>
+  </footer>
+
+  <!-- ==================== CHATBOT ==================== -->
+  <div class="mascota" id="mascota">
+    <img src="Logoitago.png" alt="Mascota Itago" />
+    <div class="mensaje-contacto" id="mensajeContacto">
+      ¡Hola! Soy ItagoBot 🤖 ¿Quieres saber más sobre nosotros?
+    </div>
+  </div>
+
+  <div class="chatbot" id="chatbot">
+    <div class="chat-output" id="chatOutput"></div>
+    <input type="text" id="userInput" placeholder="Escribe tu mensaje y presiona Enter..." />
+  </div>
+
+  <script src="script-nosotros.js"></script>
+</body>
+</html>

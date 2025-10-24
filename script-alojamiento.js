@@ -330,7 +330,7 @@ const respuestas = {
 // ==================================================
 window.addEventListener("load", () => {
   abierto = true;
-  chatbot.style.display = "flex";
+  chatbot.style.display = "none";
   mostrarRespuestaBot(obtenerRespuestaLocal("hola"));
 });
 
