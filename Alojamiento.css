@@ -94,8 +94,14 @@ nav a.activo {
 .hero-content h2 {
   font-size: 2.8rem;
   margin-bottom: 15px;
-  background: linear-gradient(135deg, #a46eff, #ffcc00);
-  -webkit-background-clip: text;
+  .texto-degradado {
+  background: linear-gradient(90deg, #a200ff, #ff00cc);
+  -webkit-background-clip: text; /* versión para Chrome, Safari, Opera */
+  background-clip: text;         /* versión estándar */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
   -webkit-text-fill-color: transparent;
 }
 
@@ -224,8 +230,14 @@ nav a.activo {
 .consejos-section h2 {
   font-size: 2rem;
   margin-bottom: 15px;
-  background: linear-gradient(135deg, #a46eff, #ffd500);
-  -webkit-background-clip: text;
+  .texto-degradado {
+  background: linear-gradient(90deg, #a200ff, #ff00cc);
+  -webkit-background-clip: text; /* versión para Chrome, Safari, Opera */
+  background-clip: text;         /* versión estándar */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
   -webkit-text-fill-color: transparent;
 }
 
@@ -276,8 +288,6 @@ nav a.activo {
   color: #eaeaea;
   line-height: 1.5;
 }
-
-
 /* =========================================================
    🦶 FOOTER
    ========================================================= */
@@ -420,7 +430,6 @@ footer {
   color: #000;
   transform: translateY(-2px);
 }
-
 /* =========================================================
    📱 RESPONSIVE
    ========================================================= */
