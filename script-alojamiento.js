@@ -19,7 +19,7 @@ const hoteles = [
     nombre: "Hotel Central Park",
     lat: 6.171,
     lng: -75.611,
-    url: "https://hotelcentralparkitagui.com",
+    url: "https://www.tripadvisor.co/Hotel_Review-g2079011-d17531231-Reviews-Hotel_Porton_Del_Parque-Itagui_Antioquia_Department.html",
     descripcion: "Ubicado frente al parque principal, ideal para turistas y viajeros de negocios.",
     estrellas: 4.8
   },
@@ -27,71 +27,71 @@ const hoteles = [
     nombre: "Hotel Ditaires Plaza",
     lat: 6.175,
     lng: -75.605,
-    url: "https://hotelditairesplaza.com",
+    url: "https://sixtina-plaza-dot-web-dot-secure-booking-co4.appspot.com/booking1?fromCountry=CO&startDate=30/10/2025&endDate=31/10/2025&source=hotelads&numRooms=1&adultsRoom1=2&adultsRoom2=0&adultsRoom3=0&childrenRoom1=0&childrenRoom2=0&childrenRoom3=0&babiesRoom1=0&babiesRoom2=0&babiesRoom3=0&language=SPANISH&namespace=sixtina-plaza&utm_medium=organic&utm_source=google&utm_campaign=fbl&utm_content=SPANISH&utm_term=paraty-metasearch&utm_id=sixtina-plaza&bookingSource=GoogleCPC&token=i4ycIDGy3tKvkI4KWEKeYA==",
     descripcion: "Moderno, acogedor y cerca del estadio Ditaires. Perfecto para eventos deportivos.",
     estrellas: 4.7
   },
   {
-    nombre: "Hotel Golden House",
+    nombre: "Hotel Ruiseñor Itagüí",
     lat: 6.168,
     lng: -75.619,
-    url: "https://hotelgoldenhouseitagui.com",
+    url: "https://www.booking.com/hotel/co/ruisenor.es.html?chal_t=1761664878845&force_referer=https%3A%2F%2Fwww.google.com%2F",
     descripcion: "Confort, elegancia y excelente servicio. A pocos minutos de la estación Itagüí.",
     estrellas: 4.6
   },
   {
-    nombre: "Hostal Senda Verde",
+    nombre: "Hostal corazon Verde",
     lat: 6.178,
     lng: -75.602,
-    url: "https://hostalsendaverde.com",
+    url: "https://www.booking.com/hotel/co/corazon-verde.es.html",
     descripcion: "Una experiencia natural y tranquila. Ideal para viajeros ecológicos y mochileros.",
     estrellas: 4.5
   },
   {
-    nombre: "Hotel Platinum Plaza",
+    nombre: "Hotel Playa Itagüí",
     lat: 6.170,
     lng: -75.609,
-    url: "https://hotelplatinumplaza.com",
+    url: "https://www.booking.com/hotel/co/playa-itagui.es.html",
     descripcion: "Hotel moderno con restaurante, terraza panorámica y excelente ubicación céntrica.",
     estrellas: 4.4
   },
   {
-    nombre: "Hotel Alcaraván",
+    nombre: "Hotel California Itagüí",
     lat: 6.162,
     lng: -75.611,
-    url: "https://hotelalcaravan.com",
+    url: "https://es.planetofhotels.com/colombia/itagui/hotel-california",
     descripcion: "Hotel tradicional con amplias habitaciones, piscina y zonas verdes. Ideal para familias.",
     estrellas: 4.6
   },
   {
-    nombre: "Hotel Portón de San Joaquín",
+    nombre: "Hotel Plaza Mayor Itagüí",
     lat: 6.162,
     lng: -75.604,
-    url: "https://hotelportonsanjoaquin.com",
+    url: "https://www.booking.com/hotel/co/plaza-mayor-itagui-itagui.es.html",
     descripcion: "Elegante, con restaurante gourmet y atención personalizada en un entorno tranquilo.",
     estrellas: 4.7
   },
   {
-    nombre: "Hotel Ayenda Palermo Suites",
+    nombre: "Hotel Alcaraván",
     lat: 6.174,
     lng: -75.610,
-    url: "https://ayenda.co/hotel/palermo-suites",
+    url: "https://hotelalcaravan.com/?utm_source=chatgpt.com",
     descripcion: "Económico y confortable. Perfecto para estancias cortas o viajeros de paso.",
     estrellas: 4.3
   },
   {
-    nombre: "Hotel Prado Verde",
+    nombre: "Hotel Macedonia Plaza",
     lat: 6.169,
     lng: -75.617,
-    url: "https://hotelpradoverde.com",
+    url: "https://www.tripadvisor.co/Hotel_Review-g2079011-d5000422-Reviews-Hotel_Macedonia_Plaza-Itagui_Antioquia_Department.html",
     descripcion: "Ambiente campestre con jardines, restaurante y piscina. Ideal para descanso y eventos.",
     estrellas: 4.5
   },
   {
-    nombre: "Hotel Maderos Inn",
+    nombre: "Ibis Budget Itagüí",
     lat: 6.166,
     lng: -75.613,
-    url: "https://hotelmaderosinn.com",
+    url: "https://www.tripadvisor.co/Hotel_Review-g2079011-d15558474-Reviews-Ibis_Budget_Itagui-Itagui_Antioquia_Department.html",
     descripcion: "Ambiente cálido, moderno y con decoración minimalista. Excelente servicio al cliente.",
     estrellas: 4.6
   },
