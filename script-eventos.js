@@ -124,6 +124,9 @@ añosFuturos.forEach(año => {
       calendario.appendChild(espacio);
     }
 
+    // 🔹 Variable para eliminar burbujas anteriores
+    let activeBubble = null;
+
     for (let d = 1; d <= ultimoDia.getDate(); d++) {
       const fecha = `${year}-${String(month + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
       const celda = document.createElement("div");
@@ -132,11 +135,43 @@ añosFuturos.forEach(año => {
 
       if (eventos[fecha]) {
         celda.classList.add("evento-dia");
-        celda.title = eventos[fecha].titulo;
-        celda.addEventListener("click", () => {
-          eventTitle.textContent = eventos[fecha].titulo;
-          eventDescription.textContent = eventos[fecha].descripcion;
-          modal.classList.remove("oculto");
+        celda.title = ""; // evita el tooltip del navegador
+
+        celda.addEventListener("click", e => {
+          // Si ya hay una burbuja abierta, la quitamos
+          if (activeBubble) {
+            activeBubble.remove();
+            activeBubble = null;
+          }
+
+          // Crear burbuja flotante
+          const bubble = document.createElement("div");
+          bubble.classList.add("event-bubble");
+          bubble.innerHTML = `
+            <strong>${eventos[fecha].titulo}</strong><br>
+            <span>${eventos[fecha].descripcion}</span>
+          `;
+
+          document.body.appendChild(bubble);
+
+          // Posicionar la burbuja justo encima del día
+          const rect = e.target.getBoundingClientRect();
+          bubble.style.left = `${rect.left + rect.width / 2}px`;
+          bubble.style.top = `${rect.top - 10}px`;
+
+          // Mostrar con animación suave
+          requestAnimationFrame(() => bubble.classList.add("visible"));
+
+          activeBubble = bubble;
+
+          // Cerrar al hacer clic fuera
+          document.addEventListener("click", function cerrar(event) {
+            if (!bubble.contains(event.target) && event.target !== celda) {
+              bubble.remove();
+              activeBubble = null;
+              document.removeEventListener("click", cerrar);
+            }
+          });
         });
       }
 
@@ -144,6 +179,7 @@ añosFuturos.forEach(año => {
     }
   }
 
+  // Navegación entre meses
   prev.addEventListener("click", () => {
     fechaActual.setMonth(fechaActual.getMonth() - 1);
     renderCalendar();
@@ -154,13 +190,10 @@ añosFuturos.forEach(año => {
     renderCalendar();
   });
 
-  closeModal.addEventListener("click", () => modal.classList.add("oculto"));
-  window.addEventListener("click", e => {
-    if (e.target === modal) modal.classList.add("oculto");
-  });
-
+  // Render inicial del calendario
   renderCalendar();
 });
+
 
 // ==================================================
 // 🤖 CHATBOT LOCAL ITAGO - SECCIÓN EVENTOS

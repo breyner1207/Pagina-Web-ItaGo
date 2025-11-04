@@ -1,6 +1,6 @@
 /* =========================================================
    🟣 RESET GENERAL
-   ========================================================= */
+========================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +16,7 @@ body {
 
 /* =========================================================
    🟣 HEADER
-   ========================================================= */
+========================================================= */
 .header {
   display: flex;
   justify-content: space-between;
@@ -65,7 +65,7 @@ nav a.activo {
 
 /* =========================================================
    🟣 HERO TRANSPORTE
-   ========================================================= */
+========================================================= */
 .hero-transporte {
   position: relative;
   height: 90vh;
@@ -124,7 +124,7 @@ nav a.activo {
 
 /* =========================================================
    🟣 INTRODUCCIÓN
-   ========================================================= */
+========================================================= */
 .intro-transporte {
   text-align: center;
   padding: 100px 10%;
@@ -147,7 +147,7 @@ nav a.activo {
 
 /* =========================================================
    🟣 GALERÍA DE TRANSPORTE
-   ========================================================= */
+========================================================= */
 .galeria-transporte {
   padding: 80px 6%;
   background: linear-gradient(180deg, #1b0066, #2e00ff);
@@ -165,15 +165,20 @@ nav a.activo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .card {
-  background: #fff;
-  color: #000;
+  background: #ffffff;
+  color: #000000;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card img {
@@ -182,56 +187,157 @@ nav a.activo {
   object-fit: cover;
 }
 
+.card-content {
+  flex: 1;
+  padding: 1rem 1.2rem 1.5rem;
+}
+
 .card h3 {
   color: #5b33ff;
   font-size: 1.2rem;
+  font-weight: 600;
   margin: 1rem 0 0.5rem;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Quitar subrayados globales (sin afectar colores personalizados) */
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+/* 📱 RESPONSIVO GALERÍA */
+@media (max-width: 768px) {
+  .galeria-transporte {
+    padding: 60px 5%;
+  }
+
+  .galeria-transporte h2 {
+    font-size: 1.6rem;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
 }
 
 /* =========================================================
-   🟣 INFORMACIÓN EXTRA
-   ========================================================= */
+   🟣 INFO-EXTRA: DATOS ÚTILES
+========================================================= */
 .info-extra {
-  background: #fff;
-  color: #000;
-  text-align: center;
-  padding: 80px 8%;
+  padding: 56px 6%;
+  background: linear-gradient(180deg, #fafafa, #f3f7ff);
+  color: #1b1b1b;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-.info-extra h2 {
-  color: #2e00ff;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+.contenedor-info {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contenedor-info h2 {
+  font-size: 1.9rem;
+  color: #1b0066;
+  margin-bottom: 1.4rem;
+  font-weight: 700;
 }
 
 .datos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+  align-items: start;
 }
 
 .dato {
-  background: linear-gradient(135deg, #f3f3f3, #eaeaff);
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  padding: 1.5rem;
-  width: 280px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+  text-align: left;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .dato h3 {
-  color: #5b33ff;
-  margin-bottom: 0.6rem;
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  color: #2e00ff;
+}
+
+.dato p {
+  margin: 0;
+  color: #333;
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+/* === BOTÓN GOOGLE MAPS === */
+.btn-mapa {
+  display: inline-block;
+  margin-top: 12px;
+  background-color: #2e00ff;
+  color: #FFD500 !important; /* 🔥 color amarillo forzado */
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(255, 213, 0, 0.2);
+}
+
+.btn-mapa:hover {
+  background-color: #ffd500;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(255, 213, 0, 0.3);
+}
+
+.nota {
+  margin-top: 18px;
+  font-size: 0.88rem;
+  color: #666;
+}
+
+/* RESPONSIVO INFO EXTRA */
+@media (max-width: 640px) {
+  .info-extra {
+    padding: 36px 4%;
+  }
+
+  .contenedor-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .dato {
+    min-height: auto;
+  }
 }
 
 /* =========================================================
    🟣 CTA FINAL
-   ========================================================= */
+========================================================= */
 .cta-transporte {
   background: linear-gradient(90deg, #2e00ff, #7a5fff);
   color: white;
@@ -267,7 +373,7 @@ nav a.activo {
 
 /* =========================================================
    🤖 MASCOTA & CHATBOT
-   ========================================================= */
+========================================================= */
 .mascota {
   position: fixed;
   bottom: 30px;
@@ -289,7 +395,6 @@ nav a.activo {
   100% { transform: translateY(0px); }
 }
 
-/* Tooltip del chatbot */
 .mensaje-contacto {
   position: absolute;
   bottom: 90px;
@@ -322,7 +427,9 @@ nav a.activo {
   border-top: 8px solid #a200ff;
 }
 
-/* Caja del chatbot */
+/* =========================================================
+   💬 CHATBOT
+========================================================= */
 .chatbot {
   position: fixed;
   bottom: 140px;
@@ -339,7 +446,6 @@ nav a.activo {
   z-index: 1100;
 }
 
-/* Mensajes */
 .chat-output {
   max-height: 300px;
   overflow-y: auto;
@@ -369,7 +475,6 @@ nav a.activo {
   align-self: flex-end;
 }
 
-/* Input */
 #userInput {
   border: none;
   border-radius: 15px;
@@ -379,9 +484,8 @@ nav a.activo {
   color: white;
   margin-top: 5px;
 }
-/* =========================================================
-   💬 BOTONES DEL CHATBOT
-   ========================================================= */
+
+/* BOTONES CHATBOT */
 .boton-opcion {
   background: linear-gradient(135deg, #5b33ff, #2e00ff);
   color: white;
@@ -405,14 +509,15 @@ nav a.activo {
 
 /* =========================================================
    🟣 FOOTER
-   ========================================================= */
+========================================================= */
 footer {
   background: #2e00ff;
   text-align: center;
   padding: 20px;
   color: white;
   font-size: 14px;
-  position: relative;
-  z-index: 1;
 }
 
+html {
+  scroll-behavior: smooth;
+}

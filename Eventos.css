@@ -180,6 +180,8 @@ nav a.activo {
   padding: 100px 20px;
   text-align: center;
   color: white;
+  position: relative;
+  overflow: hidden;
 }
 
 .calendario h2 {
@@ -195,6 +197,7 @@ nav a.activo {
   margin: 0 auto;
   padding: 25px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
 .calendario-header {
@@ -225,6 +228,7 @@ nav a.activo {
   color: #000;
 }
 
+/* === GRID PRINCIPAL === */
 .calendario-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -237,9 +241,17 @@ nav a.activo {
   background: rgba(255, 255, 255, 0.07);
   cursor: pointer;
   transition: 0.3s;
+  position: relative;
 }
 
-.calendario-grid div:hover {
+.day-name {
+  background: transparent;
+  font-weight: bold;
+  color: #ffd500;
+  cursor: default;
+}
+
+.calendario-grid .day:hover {
   background: #ffd500;
   color: #000;
 }
@@ -257,7 +269,29 @@ nav a.activo {
   border: 2px solid #fff;
 }
 
-/* Modal de evento */
+/* === BURBUJA DE EVENTO === */
+.event-bubble {
+  position: fixed;
+  background: white;
+  color: #111;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -100%) scale(0.9);
+  opacity: 0;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  z-index: 3000;
+  white-space: nowrap;
+}
+
+.event-bubble.visible {
+  transform: translate(-50%, -120%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* === MODAL DE EVENTO === */
 .event-modal {
   position: fixed;
   inset: 0;
@@ -281,11 +315,18 @@ nav a.activo {
   text-align: center;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   animation: pop 0.3s ease;
+  position: relative;
 }
 
 @keyframes pop {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 #closeModal {
@@ -293,8 +334,13 @@ nav a.activo {
   top: 10px;
   right: 18px;
   font-size: 1.8rem;
-  color: white;
+  color: #111;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+#closeModal:hover {
+  color: #ff0000;
 }
 
 /* =========================================================
