@@ -48,6 +48,17 @@ body {
   color: #ffd500;
 }
 
+.logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo:hover {
+  text-decoration: none;
+  transform: scale(1.03);
+  transition: transform 0.2s ease;
+}
+
 nav ul {
   display: flex;
   list-style: none;

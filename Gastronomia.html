@@ -14,9 +14,9 @@
        🟣 ENCABEZADO
   ========================================================= -->
   <header class="header">
-    <div class="logo">
-      <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
-    </div>
+    <a href="index.html" class="logo">
+  <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+</a>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -56,7 +56,7 @@
     </p>
   </section>
 
- <!-- =========================================================
+<!-- =========================================================
      🍽️ MAPA GASTRONÓMICO DE ITAGÜÍ
 ========================================================= -->
 <section class="mapa-gastro">
@@ -65,11 +65,39 @@
     Descubre restaurantes, cafés y lugares únicos para disfrutar la gastronomía de Itagüí.
   </p>
 
-  <!-- Contenedor del mapa -->
-  <div id="mapaGastro" style="height: 500px;"></div>
+  <div class="contenedor-mapa-comentarios">
+    
+    <!-- 🗺️ Columna del Mapa -->
+    <div class="columna-mapa">
+      <div class="filtros-mapa">
+        <button class="filtro active" data-type="todos">🍽️ Todos</button>
+        <button class="filtro" data-type="parrilla">🔥 Parrillas</button>
+        <button class="filtro" data-type="cafe">☕ Cafés</button>
+        <button class="filtro" data-type="rapida">🍔 Comida Rápida</button>
+        <button class="filtro" data-type="gourmet">🍸 Gourmet</button>
+        <button class="filtro" data-type="tradicional">🥘 Tradicional</button>
+      </div>
+
+      <div id="mapaGastro" style="height: 500px;"></div>
+    </div>
+
+    <!-- 💬 Columna de Comentarios -->
+    <div class="columna-comentarios">
+      <h3 id="tituloRestaurante">🗣️ Opiniones generales</h3>
+      <div class="lista-comentarios" id="listaComentarios">
+        <p>Selecciona un restaurante en el mapa para ver sus comentarios.</p>
+      </div>
+
+      <div class="nuevo-comentario">
+        <textarea id="comentarioTexto" placeholder="Escribe tu opinión..."></textarea>
+        <button id="btnEnviarComentario">Enviar</button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- Agregar Leaflet -->
+<!-- Leaflet -->
 <link
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -77,123 +105,144 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-  // Inicializar mapa centrado en Itagüí
+  // 🗺️ Inicializar mapa centrado en Itagüí
   const mapa = L.map("mapaGastro").setView([6.1717, -75.6110], 14);
 
-  // Cargar mapa base
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(mapa);
 
-  // Lugares gastronómicos destacados
-const lugares = [
-  {
-    nombre: "🍖 La Parrillita de la 85",
-    coords: [6.1718, -75.6102],
-    descripcion: "Especialidad en carnes y comida paisa."
-  },
-  {
-    nombre: "🍕 Pizza al Parque",
-    coords: [6.1750, -75.6150],
-    descripcion: "Ambiente familiar con pizzas artesanales."
-  },
-  {
-    nombre: "🍔 Itago Burgers",
-    coords: [6.1670, -75.6060],
-    descripcion: "Hamburguesas caseras con toque local."
-  },
-  {
-    nombre: "🍣 Sushi Express Itagüí",
-    coords: [6.1695, -75.6120],
-    descripcion: "Fusión japonesa con ingredientes paisas."
-  },
-  {
-    nombre: "☕ Café Ditaires",
-    coords: [6.1630, -75.6180],
-    descripcion: "Café artesanal y postres locales."
-  },
-  {
-    nombre: "🥘 Fonda Bitagüí",
-    coords: [6.1725, -75.6155],
-    descripcion: "Platos típicos antioqueños en ambiente tradicional."
-  },
-  {
-    nombre: "🍤 Amazonas Pescado y Marisco",
-    coords: [6.1700, -75.6135],
-    descripcion: "Restaurante de mariscos y ambiente elegante."
-  },
-  {
-    nombre: "🍺 Bar Microcervecería Itagüí",
-    coords: [6.1642, -75.6128],
-    descripcion: "Cervezas artesanales y snacks locales."
-  },
-  {
-    nombre: "🍛 Restaurante El Sabor Paisa",
-    coords: [6.1680, -75.6090],
-    descripcion: "Comida casera con esencia antioqueña."
-  },
-  {
-    nombre: "🌮 Taco Town",
-    coords: [6.1703, -75.6072],
-    descripcion: "Tacos, burritos y comida mexicana auténtica."
-  },
-  {
-    nombre: "🍗 Pollo Dorado Itagüí",
-    coords: [6.1665, -75.6105],
-    descripcion: "Pollo asado, papas criollas y jugos naturales."
-  },
-  {
-    nombre: "🥗 Verde Vivo",
-    coords: [6.1720, -75.6168],
-    descripcion: "Restaurante saludable con bowls y ensaladas frescas."
-  },
-  {
-    nombre: "🍕 Don Gordo Pizza",
-    coords: [6.1690, -75.6082],
-    descripcion: "Pizzas gigantes con masa artesanal y salsas caseras."
-  },
-  {
-    nombre: "🍔 Burger Station",
-    coords: [6.1743, -75.6145],
-    descripcion: "Hamburguesas premium con ingredientes locales."
-  },
-  {
-    nombre: "🍝 Pasta Bella",
-    coords: [6.1658, -75.6098],
-    descripcion: "Cocina italiana tradicional con toque paisa."
-  },
-  {
-    nombre: "🍨 Heladería La 85",
-    coords: [6.1712, -75.6115],
-    descripcion: "Helados artesanales y postres fríos deliciosos."
-  },
-  {
-    nombre: "🍜 Ramen Paisa",
-    coords: [6.1687, -75.6139],
-    descripcion: "Ramen japonés con ingredientes locales y únicos."
-  },
-  {
-    nombre: "🍛 El Fogón de Doña Mary",
-    coords: [6.1731, -75.6172],
-    descripcion: "Comida casera tradicional servida con cariño."
-  },
-  {
-    nombre: "🍸 Bar 33 GastroPub",
-    coords: [6.1655, -75.6150],
-    descripcion: "Ambiente moderno, cócteles y tapas gourmet."
-  },
-  {
-    nombre: "🥞 Desayunos Típicos La 60",
-    coords: [6.1699, -75.6183],
-    descripcion: "Arepas, calentado paisa y café recién hecho."
-  }
-];
+  // 📍 Lugares gastronómicos (reales y ampliados)
+  const lugares = [
+    // Parrillas
+    { nombre: "🍖 La Parrillita de la 85", coords: [6.1718, -75.6102], descripcion: "Especialidad en carnes y comida paisa.", tipo: "parrilla" },
+    { nombre: "🔥 Steak House MásFinca", coords: [6.1766, -75.6127], descripcion: "Cortes premium y experiencia parrillera.", tipo: "parrilla" },
+    { nombre: "🥩 Pablo Parrilla", coords: [6.1748, -75.6153], descripcion: "Parrilla tradicional con excelente sabor.", tipo: "parrilla" },
+    { nombre: "🔥 Brasas & Parrilla", coords: [6.1720, -75.6100], descripcion: "Cortes jugosos y ambiente familiar.", tipo: "parrilla" },
+    { nombre: "🥓 Asados Donde El Paisa", coords: [6.1695, -75.6142], descripcion: "Parrilla criolla con sabor casero.", tipo: "parrilla" },
 
-  // Agregar marcadores al mapa
-  lugares.forEach(lugar => {
-    L.marker(lugar.coords)
-      .addTo(mapa)
-      .bindPopup(`<strong>${lugar.nombre}</strong><br>${lugar.descripcion}`);
+    // Cafés
+    { nombre: "☕ Café Ditaires", coords: [6.1630, -75.6180], descripcion: "Café artesanal y postres locales.", tipo: "cafe" },
+    { nombre: "☕ Urbania Café", coords: [6.1710, -75.6090], descripcion: "Café especial con ambiente moderno.", tipo: "cafe" },
+    { nombre: "☕ Café de la Plaza", coords: [6.1745, -75.6120], descripcion: "Espacio tranquilo frente al parque principal.", tipo: "cafe" },
+
+    // Comida rápida
+    { nombre: "🍔 Itago Burgers", coords: [6.1670, -75.6060], descripcion: "Hamburguesas caseras con toque local.", tipo: "rapida" },
+    { nombre: "🌭 Dogger Ditaires", coords: [6.1627, -75.6185], descripcion: "Perros calientes y hamburguesas clásicas.", tipo: "rapida" },
+    { nombre: "🍕 Piccolo Pizza", coords: [6.1709, -75.6112], descripcion: "Pizzería artesanal muy querida por locales.", tipo: "rapida" },
+    { nombre: "🍟 El Corral Itagüí", coords: [6.1742, -75.6130], descripcion: "Hamburguesas gourmet rápidas y sabrosas.", tipo: "rapida" },
+
+    // Gourmet
+    { nombre: "🍸 Amazonas Pescado y Marisco", coords: [6.1700, -75.6135], descripcion: "Restaurante de mariscos y ambiente elegante.", tipo: "gourmet" },
+    { nombre: "🍤 Buena Mar / El Barco", coords: [6.1738, -75.6119], descripcion: "Mariscos frescos y excelente atención.", tipo: "gourmet" },
+    { nombre: "🍣 Koi Sushi Bar", coords: [6.1730, -75.6095], descripcion: "Sushi y fusión asiática moderna.", tipo: "gourmet" },
+    { nombre: "🍷 La Terraza Gourmet", coords: [6.1751, -75.6109], descripcion: "Cocina internacional y vista panorámica.", tipo: "gourmet" },
+
+    // Tradicional
+    { nombre: "🥘 Fonda Bitagüí", coords: [6.1725, -75.6155], descripcion: "Platos típicos antioqueños en ambiente tradicional.", tipo: "tradicional" },
+    { nombre: "🍛 El Fogón de Doña Mary", coords: [6.1731, -75.6172], descripcion: "Comida casera servida con cariño.", tipo: "tradicional" },
+    { nombre: "🥗 La Arepita del Sabor", coords: [6.1714, -75.6098], descripcion: "Arepas rellenas, jugos y platos paisas.", tipo: "tradicional" },
+    { nombre: "🍲 Restaurante El Rancherito", coords: [6.1662, -75.6058], descripcion: "Típico antioqueño y atención rápida.", tipo: "tradicional" },
+    { nombre: "🥘 Doña Rosa Cocina Tradicional", coords: [6.1689, -75.6165], descripcion: "Comida casera popular entre locales.", tipo: "tradicional" }
+  ];
+
+  // 💬 Comentarios iniciales por restaurante
+  const comentarios = {
+    "🍖 La Parrillita de la 85": ["La mejor carne de la zona, 10/10 🔥", "Excelente atención y precios razonables."],
+    "🔥 Steak House MásFinca": ["Cortes de lujo, muy buena atención.", "El ambiente es elegante y familiar."],
+    "🥩 Pablo Parrilla": ["Deliciosas carnes al carbón.", "Porciones grandes y buen servicio."],
+    "🔥 Brasas & Parrilla": ["Muy buena sazón y precios justos."],
+    "🥓 Asados Donde El Paisa": ["La picada mixta es brutal."],
+    "☕ Café Ditaires": ["El ambiente es súper acogedor ☕✨", "Postres deliciosos y muy buena música."],
+    "☕ Urbania Café": ["Excelente café y decoración moderna."],
+    "☕ Café de la Plaza": ["Perfecto para trabajar tranquilo."],
+    "🍔 Itago Burgers": ["Las hamburguesas son brutales 🍔🔥", "Tienen combos muy completos."],
+    "🌭 Dogger Ditaires": ["Los perros más ricos del estadio."],
+    "🍕 Piccolo Pizza": ["Pizzas artesanales buenísimas."],
+    "🍟 El Corral Itagüí": ["Rápido, limpio y delicioso."],
+    "🍸 Amazonas Pescado y Marisco": ["Excelente mariscos y atención de lujo 🦐", "Ideal para cenas románticas."],
+    "🍤 Buena Mar / El Barco": ["Los cócteles de camarón son increíbles."],
+    "🍣 Koi Sushi Bar": ["Sushi fresco y presentación hermosa."],
+    "🍷 La Terraza Gourmet": ["La vista es espectacular, ideal en pareja."],
+    "🥘 Fonda Bitagüí": ["Comida típica deliciosa 😋", "El lugar perfecto para almorzar en familia."],
+    "🍛 El Fogón de Doña Mary": ["El mejor sancocho que he probado 🥰", "Se siente como comer en casa ❤️"],
+    "🥗 La Arepita del Sabor": ["Las arepas son muy ricas y baratas."],
+    "🍲 Restaurante El Rancherito": ["Comida paisa tradicional, excelente servicio."],
+    "🥘 Doña Rosa Cocina Tradicional": ["Buena comida y precios cómodos."]
+  };
+
+  // 📍 Crear marcadores
+  const marcadores = lugares.map(lugar => {
+    const marker = L.marker(lugar.coords)
+      .bindPopup(`<strong>${lugar.nombre}</strong><br>${lugar.descripcion}`)
+      .on("click", () => mostrarComentarios(lugar.nombre));
+    marker.tipo = lugar.tipo;
+    marker.nombre = lugar.nombre;
+    marker.addTo(mapa);
+    return marker;
+  });
+
+  // 🎯 Filtros
+  const botones = document.querySelectorAll(".filtro");
+  botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+      const tipo = boton.dataset.type;
+      botones.forEach(b => b.classList.remove("active"));
+      boton.classList.add("active");
+
+      marcadores.forEach(marker => {
+        if (tipo === "todos" || marker.tipo === tipo) {
+          marker.addTo(mapa);
+        } else {
+          mapa.removeLayer(marker);
+        }
+      });
+    });
+  });
+
+  // 💬 Mostrar comentarios según restaurante
+  const listaComentarios = document.getElementById("listaComentarios");
+  const tituloRestaurante = document.getElementById("tituloRestaurante");
+  let restauranteSeleccionado = null;
+
+  function mostrarComentarios(nombre) {
+    restauranteSeleccionado = nombre;
+    tituloRestaurante.textContent = `🗣️ Opiniones sobre ${nombre}`;
+    listaComentarios.innerHTML = "";
+
+    if (comentarios[nombre] && comentarios[nombre].length > 0) {
+      comentarios[nombre].forEach(c => {
+        const p = document.createElement("p");
+        p.textContent = c;
+        listaComentarios.appendChild(p);
+      });
+    } else {
+      listaComentarios.innerHTML = "<p>¡Sé el primero en dejar un comentario!</p>";
+    }
+  }
+
+  // ✍️ Agregar nuevos comentarios
+  const inputComentario = document.getElementById("comentarioTexto");
+  const btnEnviar = document.getElementById("btnEnviarComentario");
+
+  btnEnviar.addEventListener("click", () => {
+    const texto = inputComentario.value.trim();
+    if (texto === "") return;
+
+    if (!restauranteSeleccionado) {
+      alert("Selecciona un restaurante en el mapa primero.");
+      return;
+    }
+
+    if (!comentarios[restauranteSeleccionado]) comentarios[restauranteSeleccionado] = [];
+    comentarios[restauranteSeleccionado].push(texto);
+
+    const nuevo = document.createElement("p");
+    nuevo.textContent = texto;
+    listaComentarios.appendChild(nuevo);
+
+    inputComentario.value = "";
+    listaComentarios.scrollTop = listaComentarios.scrollHeight;
   });
 </script>
 

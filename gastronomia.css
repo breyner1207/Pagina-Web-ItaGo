@@ -43,6 +43,17 @@ body {
 .ita { color: #3774b8; }
 .go { color: #ffd500; }
 
+.logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo:hover {
+  text-decoration: none;
+  transform: scale(1.03);
+  transition: transform 0.2s ease;
+}
+
 nav ul {
   display: flex;
   list-style: none;
@@ -153,6 +164,135 @@ nav a.activo {
   box-shadow: 0 8px 25px rgba(183, 92, 255, 0.3);
   overflow: hidden;
   text-align: center;
+}
+/* =========================================================
+   🎛️ FILTROS INTERACTIVOS — MAPA GASTRONÓMICO
+========================================================= */
+.filtros-mapa {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filtros-mapa .filtro {
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  font-size: 0.95rem;
+}
+
+.filtros-mapa .filtro:hover {
+  background: linear-gradient(135deg, #ffd500, #ffb800);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 213, 0, 0.3);
+}
+
+/* Botón activo */
+.filtros-mapa .filtro.active {
+  background: linear-gradient(135deg, #ffd500, #ffb800);
+  color: #000;
+  box-shadow: 0 6px 20px rgba(255, 213, 0, 0.5);
+  transform: scale(1.05);
+}
+
+/* Animación al presionar */
+.filtros-mapa .filtro:active {
+  transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .filtros-mapa {
+    gap: 10px;
+  }
+  .filtros-mapa .filtro {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+/* =========================================================
+   💬 COMENTARIOS — MAPA GASTRONÓMICO
+========================================================= */
+.contenedor-mapa-comentarios {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.columna-mapa {
+  flex: 2;
+  min-width: 350px;
+}
+
+.columna-comentarios {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: #fff;
+  max-width: 400px;
+  box-shadow: 0 8px 25px rgba(183, 92, 255, 0.2);
+}
+
+.columna-comentarios h3 {
+  color: #ffd500;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.lista-comentarios {
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lista-comentarios p {
+  margin-bottom: 0.7rem;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.5rem;
+}
+
+.nuevo-comentario textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  resize: none;
+  font-family: inherit;
+  margin-bottom: 10px;
+}
+
+.nuevo-comentario button {
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, #ffd500, #ffb800);
+  color: #000;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nuevo-comentario button:hover {
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  color: #fff;
 }
 
 /* =========================================================
