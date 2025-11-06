@@ -10,22 +10,26 @@
 <body>
 
   <!-- ==================== ENCABEZADO ==================== -->
-  <header class="header">
-    <a href="index.html" class="logo">
-  <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
-</a>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="activo">Inicio</a></li>
-        <li><a href="arte.html">Arte</a></li>
-        <li><a href="Gastronomia.html">Gastronomia</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="Alojamiento.html">Alojamiento</a></li>
-        <li><a href="Transporte.html">Movilidad</a></li>
-        <li><a href="Nosotros.html">Nosotros</a></li>
-      </ul>
-    </nav>
-  </header>
+ <header class="header">
+  <a href="index.html" class="logo">
+    <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
+  </a>
+
+  <!-- 🔧 corregido -->
+  <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+  <nav>
+    <ul id="main-nav">
+      <li><a href="index.html" class="activo">Inicio</a></li>
+      <li><a href="arte.html">Arte</a></li>
+      <li><a href="Gastronomia.html">Gastronomia</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="Alojamiento.html">Alojamiento</a></li>
+      <li><a href="Transporte.html">Movilidad</a></li>
+      <li><a href="Nosotros.html">Nosotros</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- ==================== SECCIÓN HERO ==================== -->
   <section class="hero">
@@ -105,35 +109,32 @@
   </div>
 </section>
 
-  <!-- ==================== DESTINOS DESTACADOS ==================== -->
-  <section class="destinos">
-    <h2>Destinos Destacados</h2>
-    <div class="grid-destinos">
-      <div class="destino">
-        <img src="parque principal.webp" alt="Parque Principal">
-        <h4>Parque Principal</h4>
-      </div>
-      <div class="destino">
-        <img src="Fonda bitagui.jpg" alt="Gastronomía Local">
-        <h4>Gastronomía Local</h4>
-      </div>
-      <div class="destino">
-        <img src="Hoteles.jpg" alt="Hoteles y Alojamiento">
-        <h4>Hoteles y Alojamiento</h4>
-      </div>
-      <div class="destino">
-        <img src="Eventos.png" alt="Eventos Culturales">
-        <h4>Eventos Culturales</h4>
-      </div>
-    </div>
-  </section>
+<!-- ==================== DESCUBRE TU EXPERIENCIA ==================== -->
+<section class="encuesta-interactiva">
+  <h2>Descubre Itagüí a tu manera 🌟</h2>
+  <p class="intro">Cuéntanos qué quieres hacer y te mostraremos las mejores opciones.</p>
 
-  <!-- ==================== PLANIFICA TU VIAJE ==================== -->
-  <section class="planifica">
-    <h2>Planifica tu Viaje</h2>
-    <p>Encuentra rutas, hospedaje, transporte y experiencias únicas con ItaGo.</p>
-    <a href="#" class="btn">Comenzar Ahora</a>
-  </section>
+  <div class="encuesta-box">
+    <!-- Paso 1 -->
+    <div class="pregunta" id="paso1">
+      <label for="actividad">¿Qué te gustaría hacer hoy?</label>
+      <select id="actividad">
+        <option value="">Selecciona una opción</option>
+        <option value="comer">Comer o tomar algo</option>
+        <option value="dormir">Buscar hospedaje</option>
+        <option value="explorar">Explorar lugares</option>
+        <option value="transporte">Moverme por la ciudad</option>
+        <option value="eventos">Ver eventos o actividades</option>
+      </select>
+    </div>
+
+    <!-- Paso 2 (se muestra según la elección) -->
+    <div class="pregunta oculto" id="paso2"></div>
+
+    <!-- Resultado -->
+    <div id="resultado" class="resultado oculto"></div>
+  </div>
+</section>
 
   <!-- ==================== CHATBOT ==================== -->
   <div class="mascota" id="mascota">
@@ -154,5 +155,68 @@
   </footer>
 
   <script src="script.js"></script>
+
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  // busca el primer nav > ul disponible (más robusto que querySelector('nav ul') si tienes varios navs)
+  const navList = document.querySelector('nav ul');
+  if (!menuToggle || !navList) {
+    console.warn('Menu toggle o nav ul no encontrado. Revisa que existan en el HTML.');
+    return;
+  }
+
+  // crear overlay si no existe
+  let overlay = document.querySelector('.menu-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  function openMenu() {
+    navList.classList.add('activo');
+    overlay.classList.add('visible');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    // bloquear scroll
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navList.classList.remove('activo');
+    overlay.classList.remove('visible');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (navList.classList.contains('activo')) closeMenu();
+    else openMenu();
+  });
+
+  // cerrar al pinchar overlay
+  overlay.addEventListener('click', closeMenu);
+
+  // cerrar al pinchar cualquier enlace dentro del menú (útil para navegación)
+  navList.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.tagName === 'A' || target.closest('a')) {
+      closeMenu();
+    }
+  });
+
+  // cerrar con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navList.classList.contains('activo')) {
+      closeMenu();
+    }
+  });
+});
+</script>
+
+
 </body>
 </html>

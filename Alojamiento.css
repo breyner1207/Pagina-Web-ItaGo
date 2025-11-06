@@ -1,6 +1,10 @@
 /* =========================================================
-   🎨 ESTILOS GENERALES
+   🏨 ALOJAMIENTO.CSS — Página de Hoteles y Estadías
+   Autor: Garetto
+   Basado en la línea visual oficial de ItaGo
    ========================================================= */
+
+/* === RESET GENERAL === */
 * {
   margin: 0;
   padding: 0;
@@ -8,14 +12,14 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: #0d0b1a;
   color: #fff;
   overflow-x: hidden;
 }
 
 /* =========================================================
-   🟣 HEADER
+   🟣 HEADER RESPONSIVE GLOBAL (CORREGIDO)
    ========================================================= */
 .header {
   display: flex;
@@ -28,12 +32,14 @@ body {
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
 }
 
 .logo h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   -webkit-text-stroke: 1px #000;
+  white-space: nowrap;
 }
 
 .ita {
@@ -47,12 +53,15 @@ body {
 .logo {
   text-decoration: none;
   color: inherit;
+  transition: transform 0.2s ease;
 }
 
 .logo:hover {
-  text-decoration: none;
   transform: scale(1.03);
-  transition: transform 0.2s ease;
+}
+
+nav {
+  display: flex;
 }
 
 nav ul {
@@ -66,6 +75,7 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+  font-size: 1rem;
 }
 
 nav a:hover,
@@ -74,12 +84,72 @@ nav a.activo {
   text-shadow: 0 0 8px rgba(255, 208, 0, 0.8);
 }
 
+/* === BOTÓN MENÚ === */
+#menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* =========================================================
+   📱 MODO RESPONSIVE CORREGIDO (FUNCIONAL)
+   ========================================================= */
+@media (max-width: 850px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: fixed; /* antes absolute */
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* se asegura de estar sobre el header */
+  }
+
+  nav ul {
+    display: none; /* se oculta hasta que se active */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(20, 0, 60, 0.97);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  nav ul.activo {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 /* =========================================================
    🏨 HERO SECTION
    ========================================================= */
 .hero-alojamiento {
   position: relative;
-  height: 60vh;
+  height: 65vh;
   background: url("hotel-central-plaza.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -87,70 +157,70 @@ nav a.activo {
   text-align: center;
 }
 
-.hero-alojamiento .overlay {
+.hero-alojamiento::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 0, 35, 0.6);
+  inset: 0;
+  background: rgba(10, 0, 35, 0.65);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
   color: white;
-  max-width: 700px;
+  max-width: 750px;
   padding: 20px;
 }
 
 .hero-content h2 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
+  font-size: 3rem;
   background: linear-gradient(90deg, #a200ff, #ff00cc);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
 }
 
 .hero-content p {
-  font-size: 1.1rem;
-  color: #ddd;
+  font-size: 1.2rem;
+  color: #e6e6e6;
+  margin-top: 10px;
 }
 
 /* =========================================================
-   🗺️ MAPA Y LISTA DE HOTELES
+   🗺️ MAPA + LISTA DE HOTELES
    ========================================================= */
 .mapa-section {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  justify-content: center;
   align-items: flex-start;
+  gap: 2rem;
+  padding: 8rem 5% 5rem;
+  flex-wrap: wrap;
 }
 
 #mapa {
-  width: 1500px;
-  height: 600px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex: 2;
+  min-width: 300px;
+  height: 550px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(91, 51, 255, 0.3);
+  border: 2px solid rgba(91, 51, 255, 0.2);
 }
 
 .lista-hoteles {
-  width: 40%;
-  max-height: 600px;
+  flex: 1;
+  max-height: 550px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   overflow-y: auto;
   scroll-behavior: smooth;
+  color: #000;
 }
 
 /* Scroll personalizado */
-.lista-hoteles::-webkit-scrollbar {
-  width: 8px;
-}
+.lista-hoteles::-webkit-scrollbar { width: 8px; }
 .lista-hoteles::-webkit-scrollbar-thumb {
   background: #bbb;
   border-radius: 4px;
@@ -161,57 +231,54 @@ nav a.activo {
 
 .lista-hoteles h2 {
   margin-bottom: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   text-align: center;
   color: #5b33ff;
 }
 
 .lista-hoteles ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .lista-hoteles li {
   background: #fafafa;
-  border-radius: 12px;
+  border-radius: 14px;
   margin-bottom: 1rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
   position: relative;
   cursor: pointer;
 }
 
 .lista-hoteles li:hover {
-  transform: scale(1.02);
+  transform: translateY(-3px);
 }
 
 .lista-hoteles img {
   width: 100%;
-  height: 140px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 12px 12px 0 0;
+  border-radius: 14px 14px 0 0;
 }
 
 .lista-hoteles div {
-  padding: 0.7rem 1rem;
+  padding: 0.8rem 1rem;
 }
 
 .lista-hoteles h3 {
-  margin: 0.3rem 0;
-  font-size: 1rem;
-  color: #222;
+  font-size: 1.05rem;
+  color: #2e00ff;
+  margin-bottom: 0.3rem;
 }
 
 .lista-hoteles p {
-  margin: 0.2rem 0;
   color: #555;
   font-size: 0.9rem;
 }
 
 .estrellas {
-  font-weight: bold;
   color: #f39c12;
+  font-weight: 600;
 }
 
 .ranking {
@@ -231,24 +298,22 @@ nav a.activo {
 .consejos-section {
   background: linear-gradient(180deg, #1a1735 0%, #120f24 100%);
   color: #fff;
-  padding: 80px 10%;
+  padding: 100px 10%;
   text-align: center;
-  position: relative;
 }
 
 .consejos-section h2 {
-  font-size: 2rem;
+  font-size: 2.3rem;
   margin-bottom: 15px;
   background: linear-gradient(90deg, #a200ff, #ff00cc);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
 }
 
 .consejos-section .intro {
-  max-width: 700px;
-  margin: 0 auto 40px auto;
+  max-width: 750px;
+  margin: 0 auto 50px auto;
   font-size: 1rem;
   color: #cfcfcf;
   line-height: 1.6;
@@ -256,29 +321,29 @@ nav a.activo {
 
 .consejos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 }
 
 .consejo {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 18px;
+  padding: 25px;
+  transition: 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .consejo:hover {
   transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
 .consejo img {
   width: 100%;
-  height: 160px;
+  height: 170px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 14px;
   margin-bottom: 15px;
 }
 
@@ -295,17 +360,6 @@ nav a.activo {
 }
 
 /* =========================================================
-   🦶 FOOTER
-   ========================================================= */
-footer {
-  background: #2e00ff;
-  text-align: center;
-  padding: 25px;
-  color: #fafafa;
-  border-top: 1px solid #2e2b4f;
-}
-
-/* =========================================================
    🤖 MASCOTA & CHATBOT
    ========================================================= */
 .mascota {
@@ -319,14 +373,12 @@ footer {
   cursor: pointer;
 }
 
-.mascota img {
-  width: 100%;
-}
+.mascota img { width: 100%; }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  100% { transform: translateY(0); }
 }
 
 .mensaje-contacto {
@@ -342,7 +394,7 @@ footer {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: 0.3s ease;
   pointer-events: none;
 }
 
@@ -438,30 +490,50 @@ footer {
 }
 
 /* =========================================================
+   🦶 FOOTER
+   ========================================================= */
+footer {
+  background: #2e00ff;
+  text-align: center;
+  padding: 25px;
+  color: #fafafa;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
    📱 RESPONSIVE
    ========================================================= */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .mapa-section {
     flex-direction: column;
+    align-items: center;
   }
 
-  #mapa {
-    height: 50vh;
-    border-right: none;
-  }
-
-  .lista-hoteles {
+  #mapa, .lista-hoteles {
+    width: 100%;
+    max-width: 700px;
     height: auto;
   }
 
   .lista-hoteles li {
-    flex-direction: column;
-    align-items: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
   }
 
   .lista-hoteles img {
-    width: 90%;
-    height: 150px;
+    height: 130px;
+  }
+
+  .consejos-section {
+    padding: 60px 20px;
   }
 }

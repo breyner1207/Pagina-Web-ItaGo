@@ -15,8 +15,8 @@ body {
 }
 
 /* =========================================================
-   🟣 HEADER
-========================================================= */
+   🟣 HEADER RESPONSIVE GLOBAL (CORREGIDO)
+   ========================================================= */
 .header {
   display: flex;
   justify-content: space-between;
@@ -27,13 +27,15 @@ body {
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
 }
 
 .logo h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   -webkit-text-stroke: 1px #000;
+  white-space: nowrap;
 }
 
 .ita {
@@ -47,12 +49,15 @@ body {
 .logo {
   text-decoration: none;
   color: inherit;
+  transition: transform 0.2s ease;
 }
 
 .logo:hover {
-  text-decoration: none;
   transform: scale(1.03);
-  transition: transform 0.2s ease;
+}
+
+nav {
+  display: flex;
 }
 
 nav ul {
@@ -66,12 +71,73 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+  font-size: 1rem;
 }
 
 nav a:hover,
 nav a.activo {
   color: #ffd500;
   text-shadow: 0 0 8px rgba(255, 208, 0, 0.8);
+}
+
+/* === BOTÓN MENÚ === */
+#menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* =========================================================
+   📱 MODO RESPONSIVE CORREGIDO (FUNCIONAL)
+   ========================================================= */
+@media (max-width: 850px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: fixed; /* antes absolute */
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* se asegura de estar sobre el header */
+  }
+
+  nav ul {
+    display: none; /* se oculta hasta que se active */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(20, 0, 60, 0.97);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  nav ul.activo {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 /* =========================================================

@@ -7,15 +7,13 @@
 }
 
 body {
-  background-image: url("itagui1.jpg");
-  background-size: 100% auto;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-}
+  background: linear-gradient(180deg, #0a0033, #13004d);
+  color: #fff;
+  overflow-x: hidden;
+  }
 
 /* =========================================================
-   🟣 HEADER
+   🟣 HEADER RESPONSIVE GLOBAL (CORREGIDO)
    ========================================================= */
 .header {
   display: flex;
@@ -28,12 +26,14 @@ body {
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
 }
 
 .logo h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   -webkit-text-stroke: 1px #000;
+  white-space: nowrap;
 }
 
 .ita {
@@ -47,12 +47,15 @@ body {
 .logo {
   text-decoration: none;
   color: inherit;
+  transition: transform 0.2s ease;
 }
 
 .logo:hover {
-  text-decoration: none;
   transform: scale(1.03);
-  transition: transform 0.2s ease;
+}
+
+nav {
+  display: flex;
 }
 
 nav ul {
@@ -66,6 +69,7 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+  font-size: 1rem;
 }
 
 nav a:hover,
@@ -74,11 +78,89 @@ nav a.activo {
   text-shadow: 0 0 8px rgba(255, 208, 0, 0.8);
 }
 
+/* === BOTÓN MENÚ === */
+#menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* =========================================================
+   📱 MODO RESPONSIVE CORREGIDO (FUNCIONAL)
+   ========================================================= */
+@media (max-width: 850px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: fixed; /* antes absolute */
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* se asegura de estar sobre el header */
+  }
+
+  nav ul {
+    display: none; /* se oculta hasta que se active */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: rgba(20, 0, 60, 0.97);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  nav ul.activo {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* =========================================================
+   🖤 OVERLAY PARA MENÚ (nuevo)
+   ========================================================= */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* === HERO SECTION === */
 .hero {
-  height: 90vh;
-  background: url("img/hero.jpg") center/cover fixed;
   position: relative;
+  height: 90vh;
+  background: url("itagui1.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,54 +292,80 @@ nav a.activo {
   opacity: 0.4;
 }
 
-/* === DESTINOS DESTACADOS === */
-.destinos {
-  background: #fff;
-  color: #000;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.destinos h2 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.grid-destinos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.destino {
-  background: #f4f4f4;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
-}
-
-.destino:hover {
-  transform: translateY(-8px);
-}
-
-.destino img {
-  width: 100%;
-  border-radius: 12px 12px 0 0;
-}
-
-/* === PLANIFICA TU VIAJE === */
-.planifica {
-  background: linear-gradient(90deg, #2e00ff, #7a5fff);
+/* === Encuesta === */
+.encuesta-interactiva {
+  background: #111;
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
 }
-
-.planifica h2 {
+.encuesta-interactiva h2 {
+  color: #ffd500;
   font-size: 2rem;
-  font-weight: 700;
   margin-bottom: 15px;
+}
+.encuesta-interactiva .intro {
+  color: #ccc;
+  margin-bottom: 25px;
+}
+.encuesta-box {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+.pregunta {
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+.pregunta label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+select option {
+  background: #222;
+  color: #fff;
+}
+.btn-recomendar {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd500, #ffb700);
+  color: #000;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn-recomendar:hover {
+  background: linear-gradient(135deg, #5b33ff, #2e00ff);
+  color: #fff;
+}
+.resultado {
+  margin-top: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  animation: aparecer 0.3s ease;
+}
+.oculto { display: none; }
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* === MASCOTA Y MENSAJE FLOTANTE === */

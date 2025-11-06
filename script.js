@@ -92,3 +92,80 @@ function mostrarRespuestaBot(respuesta) {
   chatOutput.scrollTop = chatOutput.scrollHeight;
 }
 // ====== FIN CHATBOT LOCAL ITAGO ======
+
+   const actividad = document.getElementById("actividad");
+  const paso2 = document.getElementById("paso2");
+  const resultado = document.getElementById("resultado");
+
+  const preguntasSecundarias = {
+    comer: {
+      pregunta: "¿Qué tipo de comida te gustaría?",
+      opciones: [
+        { texto: "Comida típica paisa", link: "Gastronomia.html", desc: "Visita la Fonda Bitagüí o El Fogón de Doña Mary 🍛" },
+        { texto: "Rápida o hamburguesas", link: "Gastronomia.html", desc: "Prueba La Burgesería Gourmet o Hamburguesas La Combi 🍔" },
+        { texto: "Internacional", link: "Gastronomia.html", desc: "Descubre Guadalupe Mexican Grill o Buena Mar 🌮🐟" }
+      ]
+    },
+    dormir: {
+      pregunta: "¿Qué tipo de hospedaje prefieres?",
+      opciones: [
+        { texto: "Hotel cómodo y céntrico", link: "Alojamiento.html", desc: "Mira Hotel Central Plaza o Hotel Ruán Doral 🏨" },
+        { texto: "Económico", link: "Alojamiento.html", desc: "Encuentra hostales locales cerca del parque principal 💰" }
+      ]
+    },
+    explorar: {
+      pregunta: "¿Qué quieres conocer?",
+      opciones: [
+        { texto: "Parques y naturaleza", link: "Arte.html", desc: "Visita el Parque Obrero o el Parque del Artista 🌳" },
+        { texto: "Cultura y arte", link: "Arte.html", desc: "Explora la Casa de la Cultura o eventos de música local 🎭" }
+      ]
+    },
+    transporte: {
+      pregunta: "¿Cómo te gustaría moverte?",
+      opciones: [
+        { texto: "Metro y buses", link: "Transporte.html", desc: "Consulta los horarios y rutas del sistema Metro 🚇" },
+        { texto: "Bicicleta", link: "Transporte.html", desc: "Descubre las estaciones Encicla disponibles 🚴‍♀️" }
+      ]
+    },
+    eventos: {
+      pregunta: "¿Qué tipo de eventos te interesan?",
+      opciones: [
+        { texto: "Culturales y ferias", link: "eventos.html", desc: "Revisa las próximas ferias y festivales 🎉" },
+        { texto: "Música y vida nocturna", link: "eventos.html", desc: "Conoce Bar 33 o Panzer Restaurante Bar 🎶" }
+      ]
+    }
+  };
+
+  actividad.addEventListener("change", e => {
+    const seleccion = e.target.value;
+    paso2.innerHTML = "";
+    resultado.classList.add("oculto");
+
+    if (preguntasSecundarias[seleccion]) {
+      const { pregunta, opciones } = preguntasSecundarias[seleccion];
+      paso2.classList.remove("oculto");
+      let html = `<label>${pregunta}</label><select id="opcionSecundaria"><option value="">Selecciona una opción</option>`;
+      opciones.forEach((op, i) => {
+        html += `<option value="${i}">${op.texto}</option>`;
+      });
+      html += "</select>";
+      paso2.innerHTML = html;
+
+      const opcionSelect = document.getElementById("opcionSecundaria");
+      opcionSelect.addEventListener("change", e2 => {
+        const seleccionIndex = e2.target.value;
+        if (seleccionIndex !== "") {
+          const rec = opciones[seleccionIndex];
+          resultado.innerHTML = `
+            <p><strong>✨ ${rec.desc}</strong></p>
+            <a href="${rec.link}" class="btn-recomendar">Ver más</a>
+          `;
+          resultado.classList.remove("oculto");
+        } else {
+          resultado.classList.add("oculto");
+        }
+      });
+    } else {
+      paso2.classList.add("oculto");
+    }
+  });

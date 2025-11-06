@@ -13,6 +13,10 @@
     <a href="index.html" class="logo">
   <h1><span class="ita">Ita</span><span class="go">Go</span></h1>
 </a>
+
+  <!-- 🔧 corregido -->
+  <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -110,5 +114,67 @@
   </div>
 
   <script src="script-eventos.js"></script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  // busca el primer nav > ul disponible (más robusto que querySelector('nav ul') si tienes varios navs)
+  const navList = document.querySelector('nav ul');
+  if (!menuToggle || !navList) {
+    console.warn('Menu toggle o nav ul no encontrado. Revisa que existan en el HTML.');
+    return;
+  }
+
+  // crear overlay si no existe
+  let overlay = document.querySelector('.menu-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  function openMenu() {
+    navList.classList.add('activo');
+    overlay.classList.add('visible');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    // bloquear scroll
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navList.classList.remove('activo');
+    overlay.classList.remove('visible');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (navList.classList.contains('activo')) closeMenu();
+    else openMenu();
+  });
+
+  // cerrar al pinchar overlay
+  overlay.addEventListener('click', closeMenu);
+
+  // cerrar al pinchar cualquier enlace dentro del menú (útil para navegación)
+  navList.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.tagName === 'A' || target.closest('a')) {
+      closeMenu();
+    }
+  });
+
+  // cerrar con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navList.classList.contains('activo')) {
+      closeMenu();
+    }
+  });
+});
+</script>
+
 </body>
 </html>
