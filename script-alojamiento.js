@@ -226,6 +226,12 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+window.addEventListener("resize", () => {
+  if (typeof map !== "undefined" && map.invalidateSize) {
+    map.invalidateSize();
+  }
+});
+
 // ==================================================
 // 🤖 CHATBOT LOCAL ITAGO - SECCIÓN ALOJAMIENTO
 // ==================================================
