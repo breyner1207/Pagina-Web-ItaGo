@@ -19,7 +19,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #2e00ff, #7a5fff);
+  background: linear-gradient(90deg, rgb(46, 0, 255), #7a5fff);
   padding: 10px 40px;
   position: fixed;
   width: 100%;
@@ -32,7 +32,6 @@ body {
 .logo h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  -webkit-text-stroke: 1px #000;
   white-space: nowrap;
 }
 
