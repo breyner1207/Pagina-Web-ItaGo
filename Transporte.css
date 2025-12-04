@@ -34,7 +34,6 @@ body {
 .logo h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  -webkit-text-stroke: 1px #000;
   white-space: nowrap;
 }
 
