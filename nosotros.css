@@ -148,7 +148,7 @@ nav a.activo {
    ========================================================= */
 .hero-nosotros {
   height: 80vh;
-  background: url("img/hero-nosotros.jpg") center/cover no-repeat;
+  background-color: #2e00ff;
   position: relative;
   display: flex;
   align-items: center;
